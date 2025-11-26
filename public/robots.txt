@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/profile/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /fleet
+Allow: /contact
+Allow: /blog
+Allow: /faq
+Allow: /privacy
+Allow: /terms
+
+# Sitemap location
+Sitemap: https://nassouhcar.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
