@@ -545,7 +545,7 @@ export default function Home() {
             <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
               <div className="relative h-48">
                 <Image
-                  src="/tangier.webp"
+                  src="/tanger.webp"
                   alt="Location de voiture Tanger aéroport Ibn Battouta - Service 24h/24"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -573,7 +573,7 @@ export default function Home() {
             <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
               <div className="relative h-48">
                 <Image
-                  src="/tangier.webp"
+                  src="/tanger port.webp"
                   alt="Location de voiture Tanger Port Med - Accueil ferry Europe"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -597,36 +597,10 @@ export default function Home() {
               </div>
             </article>
 
-            {/* Existing Blog - Conseils */}
-            <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
-              <div className="relative h-48">
-                <Image
-                  src="/tangier.webp"
-                  alt="Conseils location voiture Tanger - Guide expert Nassoh Car"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <p className="text-amber-400 text-sm mb-2">Conseils Expert</p>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">
-                  Conseils Location Voiture Tanger 2025
-                </h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Guide expert avec conseils professionnels, astuces économies et éviter les pièges. Économisez jusqu&apos;à 40% !
-                </p>
-                <Link href="/blog/conseils-location-voiture-tanger" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center">
-                  Lire les Conseils
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            </article>
+            
           </div>
 
-          {/* Featured Travel Guides */}
+            {/* Featured Travel Guides */}
           <div className="mt-16 pt-16 border-t border-amber-400/20">
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -637,16 +611,16 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Tanger Attractions Guide */}
-              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
-                <div className="relative h-40">
+              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
+                <div className="relative h-48">
                   <Image
                     src="/tangier.webp"
                     alt="Guide complet des attractions de Tanger avec location de voiture"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -661,6 +635,62 @@ export default function Home() {
                   </p>
                   <Link href="/blog/guide-tanger-attractions" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">
                     Découvrir Tanger
+                    <ArrowRight className="ml-1 h-3 w-3" />
+                  </Link>
+                </div>
+              </article>
+
+              {/* Guide Complet Tanger */}
+              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
+                <div className="relative h-48">
+                  <Image
+                    src="/tanger.webp"
+                    alt="Guide complet de Tanger: attractions, restaurants et conseils"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-5">
+                  <p className="text-amber-400 text-xs mb-2">Guide Ville</p>
+                  <h4 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors line-clamp-2">
+                    Guide Complet Tanger: Itinéraires et Conseils
+                  </h4>
+                  <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                    Découvrez Tanger: médina, Cap Spartel, grottes d'Hercule et bons plans.
+                  </p>
+                  <Link href="/guides/guide-tanger-complet" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">
+                    Lire le Guide
+                    <ArrowRight className="ml-1 h-3 w-3" />
+                  </Link>
+                </div>
+              </article>
+
+              {/* Conduire au Maroc */}
+              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
+                <div className="relative h-48">
+                  <Image
+                    src="/maroc.png"
+                    alt="Conduire au Maroc: code de la route et conseils"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-5">
+                  <p className="text-amber-400 text-xs mb-2">Conseils Conduite</p>
+                  <h4 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors line-clamp-2">
+                    Conduire au Maroc: Guide Pratique
+                  </h4>
+                  <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                    Code de la route, péages, stations-service et sécurité routière.
+                  </p>
+                  <Link href="/guides/conduire-maroc-guide" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">
+                    Voir les Conseils
                     <ArrowRight className="ml-1 h-3 w-3" />
                   </Link>
                 </div>

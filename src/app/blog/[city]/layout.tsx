@@ -31,16 +31,6 @@ const cityMetadata: Record<string, { title: string; description: string; keyword
     description: 'Louez votre voiture directement au port de Tanger avec nos services économiques 24h/24. Livraison gratuite et procédures simplifiées pour les voyageurs.',
     keywords: 'location voiture port Tanger, location voiture Tanger Med, location voiture ferry, service 24h Tanger, livraison gratuite port, Nassoh Car port'
   },
-  'voiture-de-location-bon-marche-tanger': {
-    title: 'Voiture de Location Bon Marché Tanger 2025 - Tarifs Imbattables dès 170 DH',
-    description: 'Trouvez les meilleures offres de location de voiture bon marché à Tanger. Tarifs économiques, service fiable et flotte moderne avec Nassoh Car.',
-    keywords: 'voiture location bon marché Tanger, location voiture pas cher Tanger, tarifs économiques Tanger, location voiture budget Tanger, Nassoh Car économique'
-  },
-  'location-auto-abordable-tanger': {
-    title: 'Location Auto Abordable Tanger 2025 ✓ Véhicules Automatiques dès 200 DH/jour',
-    description: 'Location d\'auto abordable à Tanger avec transmission automatique. Confort de conduite et tarifs compétitifs pour votre séjour au Maroc.',
-    keywords: 'location auto abordable Tanger, voiture automatique Tanger, location transmission automatique, auto économique Tanger, Nassoh Car automatique'
-  },
   'location-voiture-economique-tanger': {
     title: 'Location Voiture Économique Tanger 2025 - Flotte Moderne dès 170 DH',
     description: 'Location de voiture économique à Tanger avec la meilleure flotte moderne. Tarifs compétitifs, service premium et véhicules fiables.',

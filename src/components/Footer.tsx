@@ -82,21 +82,6 @@ const Footer = () => {
                   <span className="group-hover:text-white">Location France</span>
                 </a>
               </li>
-              <li>
-                <a href="/alquiler-coches-espana" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Alquiler España</span>
-                </a>
-              </li>
-              <li>
-                <a href="/autovermietung-deutschland" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Deutschland</span>
-                </a>
-              </li>
-              <li>
-                <a href="/noleggio-auto-italia" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Noleggio Italia</span>
-                </a>
-              </li>
             </ul>
           </div>
 

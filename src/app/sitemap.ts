@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Homepage
     {
-      url: baseUrl,
+      url: `${baseUrl}/fr`,
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
@@ -108,6 +108,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.85,
     },
+    {
+      url: `${baseUrl}/airport-car-rental`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/economy-cars`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
    
     // New SEO Blog Posts
     {
@@ -167,12 +179,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog/agence-location-voiture-aeroport-tanger`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/blog/agence-location-voiture-tanger`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -192,25 +198,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // International Pages
     {
-      url: `${baseUrl}/alquiler-coches-espana`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/autovermietung-deutschland`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/location-voiture-france`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/noleggio-auto-italia`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -218,6 +206,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Additional Pages
     {
       url: `${baseUrl}/guides`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/guides/guide-tanger-complet`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/guides/conduire-maroc-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/guides/conseils-location-voiture`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/guides/budget-voyage-maroc`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/guides/attractions-cachees-maroc`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/guides/itineraires-maroc`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -315,6 +339,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog/louer-voiture-a-petit-prix-tanger`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog/location-voiture-tanger-port-med`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -328,12 +358,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog/location-voiture-tetouan-aeroport`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/louer-voiture-a-petit-prix-tanger`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,

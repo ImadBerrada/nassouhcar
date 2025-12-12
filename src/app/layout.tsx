@@ -2,8 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
 
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+import LayoutChrome from "@/components/LayoutChrome"
 import CriticalCSS from "@/components/CriticalCSS"
 import { AuthProvider } from "@/contexts/AuthContext"
 import { BookingProvider } from "@/contexts/BookingContext"
@@ -31,17 +30,7 @@ export default function RootLayout({
 }>) {
   // Detect language from URL path for international service pages
   const getLangFromPath = () => {
-    if (typeof window !== 'undefined') {
-      const path = window.location.pathname;
-      
-      // Check for international service pages
-      if (path.includes('/noleggio-auto-italia')) return 'it';
-      if (path.includes('/autovermietung-deutschland')) return 'de';
-      if (path.includes('/alquiler-coches-espana')) return 'es';
-      if (path.includes('/location-voiture-france')) return 'fr';
-    }
-    
-    return 'fr'; // default language for all other pages
+    return 'fr'
   };
 
   return (
@@ -82,9 +71,7 @@ export default function RootLayout({
         <CriticalCSS />
         <AuthProvider>
           <BookingProvider>
-            <Header />
-            {children}
-            <Footer />
+            <LayoutChrome>{children}</LayoutChrome>
             {/* GTranslate Widget - Fixed position like the old widget */}
             <div className="gtranslate_wrapper hidden lg:block" style={{ position: 'fixed', top: '80px', right: '20px', zIndex: 1000 }}></div>
             {/* GTranslate Widget - Mobile version - Bottom left */}

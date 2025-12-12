@@ -7,17 +7,28 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useBooking } from '@/contexts/BookingContext'
 import BookingConfirmationPopup from './BookingConfirmationPopup'
 
+interface BookingConfirmationPopupProps {
+  isOpen: boolean
+  onClose: () => void
+  bookingId: string
+  totalPrice: number
+}
+
 interface BookingFormProps {
   selectedCar?: {
     id: string
     name: string
     pricePerDay: number
   }
+  language?: 'fr' | 'en' | 'es'
+  ConfirmationPopup?: React.ComponentType<BookingConfirmationPopupProps>
 }
 
-export default function BookingForm({ selectedCar }: BookingFormProps) {
+export default function BookingForm({ selectedCar, language = 'fr', ConfirmationPopup }: BookingFormProps) {
   const { user } = useAuth()
   const { bookingData } = useBooking()
+  const isEN = language === 'en'
+  const isES = language === 'es'
   const [formData, setFormData] = useState({
     pickupLocation: '',
     dropoffLocation: '',
@@ -43,7 +54,33 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false)
   const [confirmationData, setConfirmationData] = useState<{ bookingId: string; totalPrice: number } | null>(null)
 
-  const locations = [
+  const locations = isEN ? [
+    { value: 'tangier-airport', label: 'Tangier Ibn Battouta Airport' },
+    { value: 'tangier-port', label: 'Tangier Ville Port' },
+    { value: 'tangier-med', label: 'Tanger Med Port' },
+    { value: 'tangier-train', label: 'Tangier Train Station' },
+    { value: 'tetouan', label: 'Tetouan City Center' },
+    { value: 'nassoh-agency', label: 'Nassoh Car Agency' },
+    { value: 'hotel-delivery', label: 'Hotel Delivery' },
+    { value: 'fes-airport', label: 'Fes Airport' },
+    { value: 'marrakech-airport', label: 'Marrakech Airport' },
+    { value: 'rabat-sale-airport', label: 'Rabat-Salé Airport' },
+    { value: 'casablanca-airport', label: 'Casablanca Airport' },
+    { value: 'agadir-airport', label: 'Agadir Airport' }
+  ] : isES ? [
+    { value: 'tangier-airport', label: 'Aeropuerto de Tánger Ibn Battouta' },
+    { value: 'tangier-port', label: 'Puerto de Tánger Ville' },
+    { value: 'tangier-med', label: 'Puerto Tanger Med' },
+    { value: 'tangier-train', label: 'Estación de tren de Tánger' },
+    { value: 'tetouan', label: 'Centro de Tetuán' },
+    { value: 'nassoh-agency', label: 'Agencia Nassoh Car' },
+    { value: 'hotel-delivery', label: 'Entrega en hotel' },
+    { value: 'fes-airport', label: 'Aeropuerto de Fez' },
+    { value: 'marrakech-airport', label: 'Aeropuerto de Marrakech' },
+    { value: 'rabat-sale-airport', label: 'Aeropuerto de Rabat-Salé' },
+    { value: 'casablanca-airport', label: 'Aeropuerto de Casablanca' },
+    { value: 'agadir-airport', label: 'Aeropuerto de Agadir' }
+  ] : [
     { value: 'tangier-airport', label: 'Aéroport de Tanger Ibn Battouta' },
     { value: 'tangier-port', label: 'Port de Tanger Ville' },
     { value: 'tangier-med', label: 'Port Tanger Med' },
@@ -67,12 +104,12 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
     e.preventDefault()
     
     if (!user) {
-      setSubmitStatus({ type: 'error', message: 'Veuillez vous connecter pour effectuer une réservation.' })
+      setSubmitStatus({ type: 'error', message: isEN ? 'Please log in to make a booking.' : isES ? 'Inicie sesión para realizar una reserva.' : 'Veuillez vous connecter pour effectuer une réservation.' })
       return
     }
 
     if (!selectedCar) {
-      setSubmitStatus({ type: 'error', message: 'Veuillez d\'abord sélectionner une voiture.' })
+      setSubmitStatus({ type: 'error', message: isEN ? 'Please select a car first.' : isES ? 'Seleccione un coche primero.' : 'Veuillez d\'abord sélectionner une voiture.' })
       return
     }
 
@@ -82,7 +119,7 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
     try {
       const token = getAuthToken()
       if (!token) {
-        setSubmitStatus({ type: 'error', message: 'Authentification requise. Veuillez vous reconnecter.' })
+        setSubmitStatus({ type: 'error', message: isEN ? 'Authentication required. Please log in again.' : isES ? 'Autenticación requerida. Inicie sesión de nuevo.' : 'Authentification requise. Veuillez vous reconnecter.' })
         return
       }
 
@@ -109,7 +146,7 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
         setSubmitStatus(null)
       }
     } catch {
-      setSubmitStatus({ type: 'error', message: 'Échec de la réservation. Veuillez réessayer.' })
+      setSubmitStatus({ type: 'error', message: isEN ? 'Booking failed. Please try again.' : isES ? 'La reserva falló. Inténtelo de nuevo.' : 'Échec de la réservation. Veuillez réessayer.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -128,6 +165,8 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
     })
   }
 
+  const Confirmation = ConfirmationPopup || BookingConfirmationPopup
+
   return (
     <div className="bg-white/10 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8">
       {selectedCar && (
@@ -135,7 +174,7 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
           <div className="flex items-center text-white">
             <Car className="h-5 w-5 mr-2" />
             <span className="font-semibold">{selectedCar.name}</span>
-            <span className="ml-auto">{selectedCar.pricePerDay.toFixed(2)} EUR/jour</span>
+            <span className="ml-auto">{selectedCar.pricePerDay.toFixed(2)} {isEN ? 'EUR/day' : isES ? 'EUR/día' : 'EUR/jour'}</span>
           </div>
         </div>
       )}
@@ -153,10 +192,9 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
       <form onSubmit={handleSubmit}>
         {/* Form Fields Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-6">
-          {/* Pick-up Location */}
           <div className="sm:col-span-2 lg:col-span-1">
             <label htmlFor="pickupLocation" className="block text-white font-medium mb-2 text-sm lg:text-base">
-              Lieu de Prise en Charge *
+              {isEN ? 'Pickup Location *' : isES ? 'Lugar de recogida *' : 'Lieu de Prise en Charge *'}
             </label>
             <div className="relative">
               <select 
@@ -167,7 +205,7 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
                 required
                 className="w-full bg-white/10 border border-amber-400/30 rounded-xl px-3 lg:px-4 py-2.5 lg:py-3 text-gray-900 focus:outline-none focus:border-amber-400 appearance-none text-sm lg:text-base min-h-[44px]"
               >
-                <option value="" className="bg-slate-800">Sélectionner un lieu</option>
+                <option value="" className="bg-slate-800">{isEN ? 'Select a location' : isES ? 'Seleccione un lugar' : 'Sélectionner un lieu'}</option>
                 {locations.map(location => (
                   <option key={location.value} value={location.value} className="bg-slate-800">
                     {location.label}
@@ -178,10 +216,9 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
             </div>
           </div>
           
-          {/* Start Date */}
           <div>
             <label className="block text-white font-medium mb-2 text-sm lg:text-base">
-              Date de Début *
+              {isEN ? 'Start Date *' : isES ? 'Fecha de inicio *' : 'Date de Début *'}
             </label>
             <input 
               type="date" 
@@ -189,17 +226,16 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
               value={formData.startDate}
               onChange={handleInputChange}
               required
-              lang="fr"
+              lang={isEN ? 'en' : isES ? 'es' : 'fr'}
               placeholder="dd/mm/yyyy"
               min={new Date().toISOString().split('T')[0]}
               className="w-full bg-white/10 border border-amber-400/30 rounded-xl px-3 lg:px-4 py-2.5 lg:py-3 text-gray-900 focus:outline-none focus:border-amber-400 text-sm lg:text-base min-h-[44px]"
             />
           </div>
           
-          {/* End Date */}
           <div>
             <label className="block text-white font-medium mb-2 text-sm lg:text-base">
-              Date de Fin *
+              {isEN ? 'End Date *' : isES ? 'Fecha de fin *' : 'Date de Fin *'}
             </label>
             <input 
               type="date" 
@@ -207,17 +243,16 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
               value={formData.endDate}
               onChange={handleInputChange}
               required
-              lang="fr"
+              lang={isEN ? 'en' : isES ? 'es' : 'fr'}
               placeholder="dd/mm/yyyy"
               min={formData.startDate || new Date().toISOString().split('T')[0]}
               className="w-full bg-white/10 border border-amber-400/30 rounded-xl px-3 lg:px-4 py-2.5 lg:py-3 text-gray-900 focus:outline-none focus:border-amber-400 text-sm lg:text-base min-h-[44px]"
             />
           </div>
           
-          {/* Drop-off Location */}
           <div className="sm:col-span-2 lg:col-span-1">
             <label htmlFor="dropoffLocation" className="block text-white font-medium mb-2 text-sm lg:text-base">
-              Lieu de Retour
+              {isEN ? 'Drop-off Location' : isES ? 'Lugar de devolución' : 'Lieu de Retour'}
             </label>
             <div className="relative">
               <select 
@@ -227,7 +262,7 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
                 onChange={handleInputChange}
                 className="w-full bg-white/10 border border-amber-400/30 rounded-xl px-3 lg:px-4 py-2.5 lg:py-3 text-gray-900 focus:outline-none focus:border-amber-400 appearance-none text-sm lg:text-base min-h-[44px]"
               >
-                <option value="" className="bg-slate-800">Même lieu que la prise en charge</option>
+                <option value="" className="bg-slate-800">{isEN ? 'Same as pickup location' : isES ? 'Igual que el lugar de recogida' : 'Même lieu que la prise en charge'}</option>
                 {locations.map(location => (
                   <option key={location.value} value={location.value} className="bg-slate-800">
                     {location.label}
@@ -239,42 +274,47 @@ export default function BookingForm({ selectedCar }: BookingFormProps) {
           </div>
         </div>
         
-        {/* Book Button - Separate row for better alignment */}
         <div className="flex justify-center lg:justify-end mb-6">
           <button 
             type="submit"
             disabled={isSubmitting || !user}
             className="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-bold py-3 px-8 lg:px-12 rounded-xl hover:from-amber-500 hover:to-yellow-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base min-w-[200px]"
           >
-            {isSubmitting ? 'RÉSERVATION...' : 'RÉSERVER UNE VOITURE'}
+            {isSubmitting ? (isEN ? 'BOOKING...' : isES ? 'RESERVANDO...' : 'RÉSERVATION...') : (isEN ? 'BOOK A CAR' : isES ? 'RESERVAR UN COCHE' : 'RÉSERVER UNE VOITURE')}
           </button>
         </div>
         
-        {/* Additional Fields */}
         {user && (
           <div>
-            <label className="block text-white font-medium mb-2">Notes Supplémentaires</label>
+            <label className="block text-white font-medium mb-2">{isEN ? 'Additional Notes' : isES ? 'Notas adicionales' : 'Notes Supplémentaires'}</label>
             <textarea 
               name="additionalNotes"
               value={formData.additionalNotes}
               onChange={handleInputChange}
               rows={3}
               className="w-full bg-white/10 border border-amber-400/30 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-amber-400 resize-none"
-              placeholder="Demandes spéciales ou notes..."
+              placeholder={isEN ? 'Special requests or notes...' : isES ? 'Solicitudes especiales o notas...' : 'Demandes spéciales ou notes...'}
             />
           </div>
         )}
         
         {!user && (
           <div className="text-center text-amber-200 mt-4">
-            <p>Veuillez <a href="/login" className="text-amber-400 hover:underline">vous connecter</a> ou <a href="/register" className="text-amber-400 hover:underline">vous inscrire</a> pour finaliser votre réservation.</p>
+            <p>
+              {isEN ? (
+                <>Please <a href="/en/login" className="text-amber-400 hover:underline">log in</a> or <a href="/en/register" className="text-amber-400 hover:underline">register</a> to finalize your booking.</>
+              ) : isES ? (
+                <>Por favor <a href="/es/iniciar-sesion" className="text-amber-400 hover:underline">inicie sesión</a> o <a href="/es/registro" className="text-amber-400 hover:underline">regístrese</a> para finalizar su reserva.</>
+              ) : (
+                <>Veuillez <a href="/login" className="text-amber-400 hover:underline">vous connecter</a> ou <a href="/register" className="text-amber-400 hover:underline">vous inscrire</a> pour finaliser votre réservation.</>
+              )}
+            </p>
           </div>
         )}
       </form>
       
-      {/* Confirmation Popup */}
       {confirmationData && (
-        <BookingConfirmationPopup
+        <Confirmation
           isOpen={showConfirmationPopup}
           onClose={handleConfirmationClose}
           bookingId={confirmationData.bookingId}

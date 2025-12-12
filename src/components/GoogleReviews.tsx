@@ -25,9 +25,10 @@ interface GoogleReview {
 interface GoogleReviewsProps {
   placeId: string
   apiKey?: string
+  language?: 'fr' | 'en' | 'es'
 }
 
-export default function GoogleReviews({ placeId, apiKey }: GoogleReviewsProps) {
+export default function GoogleReviews({ placeId, apiKey, language = 'fr' }: GoogleReviewsProps) {
   const [reviews, setReviews] = useState<GoogleReview[]>([])
   const [loading, setLoading] = useState(true)
   const [averageRating, setAverageRating] = useState(0)
@@ -148,7 +149,7 @@ export default function GoogleReviews({ placeId, apiKey }: GoogleReviewsProps) {
   // Formater la date
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp * 1000)
-    return date.toLocaleDateString('fr-FR', {
+    return date.toLocaleDateString(language === 'en' ? 'en-US' : language === 'es' ? 'es-ES' : 'fr-FR', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -167,7 +168,7 @@ export default function GoogleReviews({ placeId, apiKey }: GoogleReviewsProps) {
     return (
       <div className="text-center py-12">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-400 mx-auto mb-4"></div>
-        <p className="text-gray-300">Chargement des avis...</p>
+          <p className="text-gray-300">{language === 'en' ? 'Loading reviews...' : language === 'es' ? 'Cargando reseñas...' : 'Chargement des avis...'}</p>
       </div>
     )
   }
@@ -180,7 +181,7 @@ export default function GoogleReviews({ placeId, apiKey }: GoogleReviewsProps) {
         {/* Google Reviews Title */}
         <div className="flex flex-col items-center mb-6">
           <h2 className="text-3xl font-bold mb-2 text-white flex items-center">
-            Avis Google
+            {language === 'en' ? 'Google Reviews' : language === 'es' ? 'Reseñas de Google' : 'Avis Google'}
             <svg className="ml-2 h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M21.8055 10.0415H12V14.0415H17.6515C17.2555 15.5935 16.0565 16.8405 14.4 17.5125L17.64 20.0205C19.6595 18.1715 21 15.3605 21 12.0415C21 11.3595 20.931 10.6925 20.8055 10.0415H21.8055Z" fill="#4285F4"/>
               <path d="M12 21.9999C14.97 21.9999 17.46 21.0229 19.2 19.5049L15.96 17.0969C14.9175 17.7359 13.5975 18.1259 12 18.1259C9.156 18.1259 6.765 16.2569 5.784 13.7069L2.238 16.2519C3.984 19.7419 7.731 21.9999 12 21.9999Z" fill="#34A853"/>
@@ -201,7 +202,7 @@ export default function GoogleReviews({ placeId, apiKey }: GoogleReviewsProps) {
             ))}
           </div>
           <p className="text-2xl font-bold text-white">{averageRating.toFixed(1)}/5</p>
-          <p className="text-gray-300">Basé sur {reviews.length} avis</p>
+          <p className="text-gray-300">{language === 'en' ? `Based on ${reviews.length} reviews` : language === 'es' ? `Basado en ${reviews.length} reseñas` : `Basé sur ${reviews.length} avis`}</p>
         </div>
 
         {/* Reviews List with Swiper */}
@@ -269,7 +270,7 @@ export default function GoogleReviews({ placeId, apiKey }: GoogleReviewsProps) {
               <path d="M5.784 13.7069C5.4 12.9069 5.184 12.0149 5.184 11.0999C5.184 10.1849 5.4 9.29292 5.784 8.49292L2.238 5.94792C1.452 7.49292 1 9.24292 1 11.0999C1 12.9569 1.452 14.7069 2.238 16.2519L5.784 13.7069Z" fill="#FBBC05"/>
               <path d="M12 3.95996C13.788 3.95996 15.3675 4.55996 16.592 5.73196L19.4775 2.84696C17.46 0.95996 14.97 -0.00104 12 -0.00104C7.731 -0.00104 3.984 2.25696 2.238 5.74696L5.784 8.29196C6.765 5.74196 9.156 3.95996 12 3.95996Z" fill="#EA4335"/>
             </svg>
-            Voir tous nos avis sur Google
+            {language === 'en' ? 'See all our reviews on Google' : language === 'es' ? 'Ver todas nuestras reseñas en Google' : 'Voir tous nos avis sur Google'}
           </a>
         </div>
       </div>

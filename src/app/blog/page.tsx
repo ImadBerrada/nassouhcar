@@ -51,7 +51,7 @@ export default function BlogPage() {
     // Tanger Port Keywords
     {
       id: 2,
-      citySlug: "location-voiture-tanger-port",
+      citySlug: "location-voiture-au-port-de-tanger",
       title: "Location Voiture Tanger Port - Service Économique 24h/24",
       excerpt: "Service de location de voiture au port de Tanger avec livraison gratuite. Flotte moderne, tarifs transparents et assistance 24h/24 pour vos déplacements depuis le port.",
       fullPreview: "Réservez votre voiture directement au port de Tanger avec notre service économique. Livraison gratuite, véhicules récents et équipe dédiée pour un service sans stress dès votre arrivée.",
@@ -66,7 +66,7 @@ export default function BlogPage() {
     },
     {
       id: 3,
-      citySlug: "location-voiture-tanger-ville",
+      citySlug: "location-voiture-tanger",
       title: "Location Voiture Tanger Ville - Centre-Ville & Médina",
       excerpt: "Louez votre voiture au cœur de Tanger Ville. Agences en centre-ville et près de la médina avec service de livraison gratuit et conseils personnalisés.",
       fullPreview: "Explorez Tanger et ses environs avec nos véhicules disponibles en centre-ville. Service personnalisé, conseils d'itinéraires et assistance locale pour découvrir les trésors de la région.",
@@ -97,7 +97,7 @@ export default function BlogPage() {
     // Budget/Cheap Rental Keywords
     {
       id: 5,
-      citySlug: "location-voiture-economique-tanger",
+      citySlug: "location-voiture-tanger-pas-cher",
       title: "Location Voiture Économique Tanger - Petit Budget",
       excerpt: "Véhicules économiques à Tanger pour tous les budgets. Citadines, compactes et berlines à prix réduits avec assurance incluse et kilométrage illimité.",
       fullPreview: "Voyagez malin avec nos voitures économiques à Tanger. Sélection de véhicules fiables, consommation réduite et tarifs adaptés aux petits budgets sans compromis sur la qualité.",
@@ -109,51 +109,6 @@ export default function BlogPage() {
       views: "1.1k",
       rating: 4.6,
       tags: ["Économique", "Budget", "Citadines"]
-    },
-    {
-      id: 6,
-      citySlug: "voiture-de-location-bon-marche-tanger",
-      title: "Voiture de Location Bon Marché Tanger - Guide Complet",
-      excerpt: "Guide complet pour trouver une voiture de location bon marché à Tanger. Astuces, comparaisons et bons plans pour économiser sur votre location.",
-      fullPreview: "Tous nos secrets pour dénicher les meilleures affaires de location de voiture à Tanger. Périodes favorables, négociation et options cachées pour réduire vos coûts.",
-      date: "11 Décembre 2024",
-      category: "Conseils Économies",
-      image: "/tangier.webp",
-      readTime: "8 min de lecture",
-      featured: false,
-      views: "890",
-      rating: 4.5,
-      tags: ["Bon marché", "Guide", "Astuces"]
-    },
-    {
-      id: 7,
-      citySlug: "location-voiture-petit-prix-tanger",
-      title: "Location Voiture Petit Prix Tanger - Offres Spéciales",
-      excerpt: "Offres spéciales et promotions pour la location de voiture à petit prix à Tanger. Réductions exclusives et véhicules de qualité à tarifs préférentiels.",
-      fullPreview: "Profitez de nos offres exceptionnelles pour louer une voiture à petit prix à Tanger. Promotions saisonnières, tarifs dégressifs et véhicules récents à prix cassés.",
-      date: "10 Décembre 2024",
-      category: "Conseils Économies",
-      image: "/tangier.webp",
-      readTime: "6 min de lecture",
-      featured: false,
-      views: "1.3k",
-      rating: 4.8,
-      tags: ["Petit prix", "Offres", "Promotions"]
-    },
-    {
-      id: 8,
-      citySlug: "location-auto-abordable-tanger",
-      title: "Location Auto Abordable Tanger - Qualité & Prix",
-      excerpt: "Location d'automobiles abordables à Tanger sans compromis sur la qualité. Véhicules entretenus, service client économique et tarifs compétitifs.",
-      fullPreview: "L'équilibre parfait entre prix abordable et qualité de service. Découvrez notre sélection de véhicules entretenus avec soin et notre engagement qualité à prix juste.",
-      date: "9 Décembre 2024",
-      category: "Avis Voitures",
-      image: "/tangier.webp",
-      readTime: "5 min de lecture",
-      featured: false,
-      views: "750",
-      rating: 4.7,
-      tags: ["Abordable", "Qualité", "Service"]
     },
     // Tétouan Keywords
     {
@@ -474,12 +429,11 @@ export default function BlogPage() {
       rating: 4.7,
       tags: ["Tétouan", "175 DH", "Rif"]
     },
-    // Final batch of previously orphan pages
     {
       id: 33,
       citySlug: "louer-voiture-a-petit-prix-tanger",
       title: "Louer Voiture à Petit Prix Tanger 2025 - Tarifs Mini dès 170 DH/jour",
-      excerpt: "Louez une voiture à petit prix à Tanger avec nos tarifs mini dès 170 DH/jour. Solutions économiques et véhicules fiables pour tous budgets.",
+      excerpt: "Louez une voiture à petit prix à Tanger dès 170 DH/jour. Offres économiques, flotte récente et service de qualité.",
       fullPreview: "Accédez à la mobilité à Tanger avec nos tarifs mini dès 170 DH/jour. Véhicules économiques, assurance incluse et service client dédié.",
       date: "November 17, 2024",
       category: "Conseils Économies",
@@ -488,8 +442,9 @@ export default function BlogPage() {
       featured: false,
       views: "2.4k",
       rating: 4.8,
-      tags: ["Petit prix", "170 DH", "Mini"]
+      tags: ["Petit prix", "170 DH", "Économique"]
     },
+    // Final batch of previously orphan pages
     {
       id: 34,
       citySlug: "location-voiture-tanger-aeroport-pas-cher",
