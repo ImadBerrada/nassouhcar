@@ -582,15 +582,15 @@ export default function GuideTangerCompletPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Services Connexes</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Location depuis la France</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Location depuis l'Europe</h3>
                 <p className="text-gray-600 mb-4">
-                  Organisez votre voyage au Maroc depuis la France avec notre service de location de voiture.
+                  Organisez votre voyage au Maroc depuis l'Europe avec notre service de location de voiture.
                 </p>
                 <Link 
-                  href="/location-voiture-france" 
+                  href="/location-voiture-europe" 
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
                 >
-                  En savoir plus <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                  Voir nos offres Europe <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
                 </Link>
               </div>
               <div className="bg-white rounded-xl shadow-lg p-6">

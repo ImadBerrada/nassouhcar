@@ -1,10 +1,14 @@
-export default function BlogAlquilerCochesFranciaES() {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-3xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">Alquiler de coches en Francia</h1>
-        <p className="text-gray-700 mb-4">Opciones de alquiler, requisitos y consejos para Francia.</p>
-      </div>
-    </div>
-  )
+import type { Metadata } from 'next'
+export { default } from '../../alquiler-coches-francia/page'
+
+export const metadata: Metadata = {
+  title: 'Alquiler de Coches desde Francia a Tánger | Reserva Online | Nassoh Car',
+  description: 'Reserve su coche de alquiler desde Francia para Tánger y Marruecos ✓ Confirmación instantánea ✓ Flota moderna ✓ GPS francés ✓ Asistencia 24/7.',
+  keywords: 'alquiler coches francia tanger, rent a car desde francia, reserva coche tanger francia',
+  alternates: { canonical: 'https://www.nassohcar.com/es/blog/alquiler-coches-francia' },
+  openGraph: {
+    title: 'Alquiler de Coches desde Francia a Tánger | Reserva Online | Nassoh Car',
+    description: 'Reserve desde Francia en unos pocos clics. Confirmación instantánea, flota moderna, GPS francés.',
+    images: ['/car-rental-france.jpg']
+  }
 }

@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="bg-gradient-to-br from-amber-400/10 to-amber-400/5 rounded-2xl p-6 border border-amber-400/20">
               <h3 className="text-2xl font-bold mb-6 text-amber-400 tracking-wide flex items-center">
                 <div className="w-2 h-8 bg-gradient-to-b from-amber-400 to-yellow-500 rounded-full mr-3"></div>
-                Soporte al Cliente
+                Atención al Cliente
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 group">
@@ -52,8 +52,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/es/alquiler-aeropuerto" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Alquiler en Aeropuerto</span>
+                <a href="/es/alquiler-coches-aeropuerto" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                  <span className="group-hover:text-white">Alquiler Aeropuerto</span>
                 </a>
               </li>
               <li>
@@ -71,8 +71,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="/es/alquiler-francia" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Francia</span>
+                <a href="/es/alquiler-coches-europa" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                  <span className="group-hover:text-white">Europa</span>
                 </a>
               </li>
             </ul>
@@ -90,13 +90,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/es/blog/alquiler-economico-tanger" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Alquiler Económico</span>
+                <Link href="/es/blog/alquiler-coches-baratos-tanger" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                  <span className="group-hover:text-white">Alquiler Barato</span>
                 </Link>
               </li>
               <li>
-                <Link href="/es/blog/alquiler-aeropuerto-tanger" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Alquiler en Aeropuerto</span>
+                <Link href="/es/blog/alquiler-coches-aeropuerto-tanger" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                  <span className="group-hover:text-white">Alquiler Aeropuerto</span>
                 </Link>
               </li>
             </ul>
@@ -114,8 +114,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/es/preguntas-frecuentes" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">FAQ</span>
+                <a href="/es/faq" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                  <span className="group-hover:text-white">Preguntas Frecuentes</span>
                 </a>
               </li>
               <li>
@@ -146,7 +146,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold mb-6 text-amber-400 tracking-wide">Enlaces Rápidos</h3>
               <div className="flex flex-wrap justify-center lg:justify-end gap-4">
                 <a href="/es/flota" className="bg-gradient-to-r from-amber-400/20 to-yellow-500/20 text-amber-400 px-4 py-2 rounded-full hover:from-amber-400/30 hover:to-yellow-500/30 transition-all duration-300 text-sm font-medium">Reservar Ahora</a>
-                <a href="/es/contacto" className="bg-gradient-to-r from-gray-400/20 to-gray-500/20 text-gray-300 px-4 py-2 rounded-full hover:from-gray-400/30 hover:to-gray-500/30 hover:text-white transition-all duration-300 text-sm font-medium">Contáctanos</a>
+                <a href="/es/contacto" className="bg-gradient-to-r from-gray-400/20 to-gray-500/20 text-gray-300 px-4 py-2 rounded-full hover:from-gray-400/30 hover:to-gray-500/30 hover:text-white transition-all duration-300 text-sm font-medium">Contáctenos</a>
                 <a href="/es/sobre-nosotros" className="bg-gradient-to-r from-gray-400/20 to-gray-500/20 text-gray-300 px-4 py-2 rounded-full hover:from-gray-400/30 hover:to-gray-500/30 hover:text-white transition-all duration-300 text-sm font-medium">Saber Más</a>
               </div>
             </div>

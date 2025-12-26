@@ -9,7 +9,7 @@ interface Review {
   date: string
 }
 
-interface StructuredDataProps {
+export interface StructuredDataProps {
   type: 'LocalBusiness' | 'Service' | 'Review' | 'Article' | 'AutoRental' | 'Blog' | 'Fleet' | '@graph'
   data?: Record<string, unknown> | unknown[]
   countryTarget?: 'FR' | 'ES' | 'IT' | 'DE' | 'MA'
@@ -52,62 +52,46 @@ export default function StructuredData({ type, data, countryTarget = 'MA', langu
       },
       de: {
         businessName: "Nassoh Car - Autovermietung Tanger Flughafen Ibn Battouta & Hafen Med",
-        description: "Premium Autovermietungsservice in Tanger mit ausgezeichneten Fahrzeugen und außergewöhnlichem 24/7 Kundenservice. Spezialisiert auf Flughafen Ibn Battouta, Hafen Tanger Med, Stadtzentrum. Moderne Flotte, wettbewerbsfähige Preise, kostenlose Lieferung.",
-        slogan: "Ihr vertrauensvoller Partner für Autovermietung in Tanger",
-        economicDesc: "Wirtschaftliche Fahrzeuge perfekt für die Erkundung von Tanger und Marokko. Niedriger Verbrauch, erschwingliche Preise ab 18€/Tag.",
-        suvDesc: "Geräumige 7-Sitzer SUVs ideal für Familienreisen. Komfort, Sicherheit und optimaler Stauraum.",
-        luxuryDesc: "Premium-Fahrzeuge für besondere Anlässe. VIP-Service, außergewöhnlicher Komfort und garantiertes Prestige."
+        description: "Premium-Mietwagenservice in Tanger mit exzellenten Fahrzeugen und außergewöhnlichem Kundenservice 24/7. Spezialisiert auf Flughafen Ibn Battouta, Hafen Tanger Med, Stadtzentrum. Moderne Flotte, wettbewerbsfähige Preise, kostenlose Lieferung.",
+        slogan: "Ihr vertrauenswürdiger Partner für Mietwagen in Tanger",
+        economicDesc: "Wirtschaftliche Fahrzeuge, perfekt um Tanger und Marokko zu erkunden. Geringer Verbrauch, günstige Preise ab 18€/Tag.",
+        suvDesc: "Geräumige 7-Sitzer-SUVs, ideal für Familienreisen. Komfort, Sicherheit und optimaler Stauraum.",
+        luxuryDesc: "Premium-Fahrzeuge für besondere Anlässe. VIP-Service, außergewöhnlicher Komfort und Prestige garantiert."
       },
       en: {
-        businessName: "Nassoh Car - Car Rental Tangier Ibn Battouta Airport & Med Port",
-        description: "Premium car rental service in Tangier offering excellent vehicles and exceptional 24/7 customer service. Specialized in Ibn Battouta airport, Tanger Med port, city center. Modern fleet, competitive rates, free delivery.",
+        businessName: "Nassoh Car - Car Rental Tangier Ibn Battouta Airport & Port Med",
+        description: "Premium car rental service in Tangier offering excellent vehicles and exceptional customer service 24/7. Specialized in Ibn Battouta Airport, Tangier Med Port, city center. Modern fleet, competitive rates, free delivery.",
         slogan: "Your trusted partner for car rental in Tangier",
         economicDesc: "Economic vehicles perfect for exploring Tangier and Morocco. Low consumption, affordable rates from 18€/day.",
         suvDesc: "Spacious 7-seater SUVs ideal for family trips. Comfort, safety and optimal storage space.",
-        luxuryDesc: "Premium vehicles for special occasions. VIP service, exceptional comfort and guaranteed prestige."
+        luxuryDesc: "Premium vehicles for special occasions. VIP service, exceptional comfort and prestige guaranteed."
+      },
+      ar: {
+        businessName: "Nassoh Car - كراء السيارات طنجة مطار ابن بطوطة وميناء المتوسط",
+        description: "خدمة تأجير سيارات متميزة في طنجة تقدم سيارات ممتازة وخدمة عملاء استثنائية على مدار الساعة طوال أيام الأسبوع. متخصصون في مطار ابن بطوطة، ميناء طنجة المتوسط، وسط المدينة. أسطول حديث، أسعار تنافسية، توصيل مجاني.",
+        slogan: "شريكك الموثوق لتأجير السيارات في طنجة",
+        economicDesc: "سيارات اقتصادية مثالية لاستكشاف طنجة والمغرب. استهلاك منخفض، أسعار معقولة تبدأ من 18 يورو/يوم.",
+        suvDesc: "سيارات دفع رباعي واسعة بـ 7 مقاعد مثالية للرحلات العائلية. راحة وأمان ومساحة تخزين مثالية.",
+        luxuryDesc: "سيارات فاخرة للمناسبات الخاصة. خدمة كبار الشخصيات، راحة استثنائية وفخامة مضمونة."
       }
     }
     
+    // Fallback to 'fr' if language is not supported or key is missing
     return content[language as keyof typeof content] || content.fr
   }
 
-  // Helper function to get country-specific targeting info
+  // Helper to get currency and country info
   const getCountryTargeting = () => {
-    const targeting = {
-      FR: {
-        targetAudience: "Résidents français voyageant au Maroc",
-        serviceArea: "Service spécialisé pour les voyageurs français",
-        currency: "EUR",
-        geoTarget: "France"
-      },
-      ES: {
-        targetAudience: "Residentes españoles viajando a Marruecos", 
-        serviceArea: "Servicio especializado para viajeros españoles",
-        currency: "EUR",
-        geoTarget: "Spain"
-      },
-      IT: {
-        targetAudience: "Residenti italiani in viaggio in Marocco",
-        serviceArea: "Servizio specializzato per viaggiatori italiani", 
-        currency: "EUR",
-        geoTarget: "Italy"
-      },
-      DE: {
-        targetAudience: "Deutsche Einwohner, die nach Marokko reisen",
-        serviceArea: "Spezialisierter Service für deutsche Reisende",
-        currency: "EUR", 
-        geoTarget: "Germany"
-      },
-      MA: {
-        targetAudience: "Résidents locaux et touristes internationaux",
-        serviceArea: "Service local et international",
-        currency: "MAD",
-        geoTarget: "Morocco"
-      }
+    switch (countryTarget) {
+      case 'MA': return { currency: 'MAD', region: 'MA' }
+      case 'FR': return { currency: 'EUR', region: 'FR' }
+      case 'ES': return { currency: 'EUR', region: 'ES' }
+      case 'IT': return { currency: 'EUR', region: 'IT' }
+      case 'DE': return { currency: 'EUR', region: 'DE' }
+      default: return { currency: 'MAD', region: 'MA' }
     }
-    
-    return targeting[countryTarget] || targeting.MA
   }
+
   const getStructuredData = () => {
     switch (type) {
       case 'LocalBusiness':
@@ -248,63 +232,7 @@ export default function StructuredData({ type, data, countryTarget = 'MA', langu
             "Location voiture aéroport Ibn Battouta",
             "Location voiture port Tanger Med",
             "Rent a car Morocco"
-          ],
-          "slogan": "Votre partenaire de confiance pour la location de voiture à Tanger | Your trusted partner for car rental in Tangier"
-        }
-
-      case 'Blog':
-        return {
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          "name": "Nassoh Car – Blog Location Voiture Tanger",
-          "url": "https://www.nassohcar.com/blog",
-          "description": "Guides et conseils sur la location de voiture à Tanger et au Maroc : itinéraires, économies, sécurité, culture locale.",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Nassoh Car",
-            "url": "https://www.nassohcar.com"
-          }
-        }
-
-      case 'AutoRental':
-        return {
-          "@context": "https://schema.org",
-          "@type": "AutoRental",
-          "name": "Nassoh Car – Location Voiture Tanger",
-          "url": "https://www.nassohcar.com",
-          "telephone": "+212631630013",
-          "priceRange": "$$",
-          "currenciesAccepted": "EUR, USD, MAD",
-          "paymentAccepted": "Cash, Credit Card, Debit Card",
-          "areaServed": [
-            { "@type": "City", "name": "Tangier", "addressCountry": "MA" },
-            { "@type": "City", "name": "Tetouan", "addressCountry": "MA" },
-            { "@type": "Place", "name": "Tanger Ibn Battouta Airport", "addressCountry": "MA" },
-            { "@type": "Place", "name": "Tanger Med Port", "addressCountry": "MA" }
-          ],
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-              ],
-              "opens": "08:00",
-              "closes": "20:00"
-            }
-          ],
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "MAD",
-            "lowPrice": "200",
-            "highPrice": "1500",
-            "offerCount": "20",
-            "availability": "https://schema.org/InStock"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "150"
-          }
+          ]
         }
 
       case 'Service':
@@ -420,9 +348,9 @@ export default function StructuredData({ type, data, countryTarget = 'MA', langu
           "itemListElement": [
             {
               "@type": "Product",
-              "name": `${language === 'fr' ? 'Voiture Économique' : language === 'es' ? 'Coche Económico' : language === 'it' ? 'Auto Economica' : language === 'de' ? 'Wirtschaftsauto' : 'Economy Car'} - ${language === 'fr' ? 'Location Tanger' : language === 'es' ? 'Alquiler Tánger' : language === 'it' ? 'Noleggio Tangeri' : language === 'de' ? 'Mietwagen Tanger' : 'Rental Tangier'}`,
+              "name": `${language === 'fr' ? 'Véhicule Économique' : language === 'es' ? 'Vehículo Económico' : language === 'it' ? 'Veicolo Economico' : language === 'de' ? 'Wirtschaftliches Fahrzeug' : 'Economic Vehicle'} - ${language === 'fr' ? 'Location Tanger' : language === 'es' ? 'Alquiler Tánger' : language === 'it' ? 'Noleggio Tangeri' : language === 'de' ? 'Mietwagen Tanger' : 'Rental Tangier'}`,
               "description": fleetContent.economicDesc,
-              "category": language === 'fr' ? 'Économique' : language === 'es' ? 'Económico' : language === 'it' ? 'Economico' : language === 'de' ? 'Wirtschaftlich' : 'Economic',
+              "category": language === 'fr' ? 'Économique' : language === 'es' ? 'Económico' : language === 'it' ? 'Economico' : language === 'de' ? 'Wirtschaftlich' : 'Economy',
               "brand": {
                 "@type": "Brand",
                 "name": "Nassoh Car"
@@ -440,7 +368,7 @@ export default function StructuredData({ type, data, countryTarget = 'MA', langu
               }
             },
             {
-              "@type": "Product", 
+              "@type": "Product",
               "name": `${language === 'fr' ? 'SUV Familial' : language === 'es' ? 'SUV Familiar' : language === 'it' ? 'SUV Familiare' : language === 'de' ? 'Familien-SUV' : 'Family SUV'} - ${language === 'fr' ? 'Location Tanger' : language === 'es' ? 'Alquiler Tánger' : language === 'it' ? 'Noleggio Tangeri' : language === 'de' ? 'Mietwagen Tanger' : 'Rental Tangier'}`,
               "description": fleetContent.suvDesc,
               "category": "SUV",
@@ -471,7 +399,7 @@ export default function StructuredData({ type, data, countryTarget = 'MA', langu
               },
               "offers": {
                 "@type": "Offer",
-                "price": "72",
+                "price": "60",
                 "priceCurrency": fleetCountryInfo.currency,
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": "2025-12-31",
@@ -481,21 +409,7 @@ export default function StructuredData({ type, data, countryTarget = 'MA', langu
                 }
               }
             }
-          ],
-          "provider": {
-            "@type": "AutoRental",
-            "name": "Nassoh Car",
-            "url": "https://www.nassohcar.com",
-            "telephone": "+212631630013",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "127 Av. Hafid Ibn Abdelbar",
-              "addressLocality": "Tanger",
-              "addressRegion": "Tanger-Tétouan-Al Hoceïma",
-              "postalCode": "90100",
-              "addressCountry": "MA"
-            }
-          }
+          ]
         }
 
       case 'Article':

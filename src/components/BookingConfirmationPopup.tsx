@@ -56,11 +56,11 @@ export default function BookingConfirmationPopup({
           </div>
           
           <h2 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">
-            Réservation en cours de confirmation
+            Reservation Confirmed!
           </h2>
           
           <p className="text-green-100 text-sm sm:text-base">
-            Numéro de réservation : #{bookingId}
+            Booking ID: #{bookingId}
           </p>
         </div>
 
@@ -69,10 +69,10 @@ export default function BookingConfirmationPopup({
           {/* Success Message */}
           <div className="text-center">
             <p className="text-gray-700 text-sm sm:text-base mb-2">
-              Votre réservation est en cours de confirmation.
+              Your reservation has been successfully confirmed!
             </p>
             <p className="text-xl sm:text-2xl font-bold text-gray-900">
-              Total: €{totalPrice.toFixed(2)}
+              Total: €{totalPrice}
             </p>
           </div>
 
@@ -84,10 +84,10 @@ export default function BookingConfirmationPopup({
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-blue-900 mb-1 text-sm sm:text-base">
-                  Vérifiez votre e-mail
+                  Check Your Email
                 </h3>
                 <p className="text-blue-700 text-xs sm:text-sm">
-                  Vous recevrez un e-mail de confirmation avec tous les détails de votre réservation.
+                  You will receive a confirmation email with all the details of your reservation.
                 </p>
               </div>
             </div>
@@ -101,10 +101,10 @@ export default function BookingConfirmationPopup({
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-amber-900 mb-1 text-sm sm:text-base">
-                  Avis important
+                  Important Notice
                 </h3>
                 <p className="text-amber-700 text-xs sm:text-sm">
-                  Veuillez vérifier votre <strong>dossier spam/courrier indésirable</strong> si vous ne recevez pas l’e-mail dans les prochaines minutes.
+                  Please check your <strong>spam/junk folder</strong> if you don&apos;t receive the email within a few minutes.
                 </p>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function BookingConfirmationPopup({
               onClick={handleClose}
               className="bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg sm:rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
             >
-              Compris, merci !
+              Got it, thanks!
             </button>
           </div>
         </div>

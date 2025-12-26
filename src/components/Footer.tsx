@@ -78,8 +78,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="/location-voiture-france" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Location France</span>
+                <a href="/location-voiture-europe" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                  <span className="group-hover:text-white">Location Europe</span>
                 </a>
               </li>
             </ul>

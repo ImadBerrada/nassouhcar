@@ -227,6 +227,73 @@ export default function HomeEN() {
           </div>
         </section>
 
+        <section className="py-20 bg-gradient-to-b from-black to-slate-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Our <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">Services</span></h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto"><strong>Car rental in Tangier</strong> – Ibn Battouta Airport, Tanger Med Port and city center.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+              <Link href="/en/economy-cars" className="group">
+                <div className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
+                  <div className="bg-amber-400/20 p-4 rounded-2xl w-16 h-16 mb-6 flex items-center justify-center group-hover:bg-amber-400/30 transition-all duration-300">
+                    <Car className="h-8 w-8 text-amber-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">Cheap Car Rental Tangier</h3>
+                  <p className="text-gray-300 leading-relaxed mb-6">Economy vehicles perfect for city driving and tight budgets. Best prices in Tangier.</p>
+                  <div className="flex items-center text-amber-400 group-hover:translate-x-2 transition-transform duration-300">
+                    <span className="font-semibold">Learn More</span>
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </div>
+                </div>
+              </Link>
+              <Link href="/en/airport-car-rental" className="group">
+                <div className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
+                  <div className="bg-amber-400/20 p-4 rounded-2xl w-16 h-16 mb-6 flex items-center justify-center group-hover:bg-amber-400/30 transition-all duration-300">
+                    <MapPin className="h-8 w-8 text-amber-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">Airport Car Rental</h3>
+                  <p className="text-gray-300 leading-relaxed mb-6">Express pickup and return at Tangier Ibn Battouta Airport. Seamless arrivals and departures.</p>
+                  <div className="flex items-center text-amber-400 group-hover:translate-x-2 transition-transform duration-300">
+                    <span className="font-semibold">Learn More</span>
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </div>
+                </div>
+              </Link>
+              <Link href="/en/car-rental-tangier-port-med" className="group">
+                <div className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
+                  <div className="bg-amber-400/20 p-4 rounded-2xl w-16 h-16 mb-6 flex items-center justify-center group-hover:bg-amber-400/30 transition-all duration-300">
+                    <svg className="h-8 w-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">Car Rental Tangier Med Port</h3>
+                  <p className="text-gray-300 leading-relaxed mb-6">Car rental at Tanger Med Port. Fast and efficient service for your trips from the port.</p>
+                  <div className="flex items-center text-amber-400 group-hover:translate-x-2 transition-transform duration-300">
+                    <span className="font-semibold">Learn More</span>
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </div>
+                </div>
+              </Link>
+              <Link href="/en/car-rental-tetouan" className="group">
+                <div className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
+                  <div className="bg-amber-400/20 p-4 rounded-2xl w-16 h-16 mb-6 flex items-center justify-center group-hover:bg-amber-400/30 transition-all duration-300">
+                    <svg className="h-8 w-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">Car Rental Tetouan</h3>
+                  <p className="text-gray-300 leading-relaxed mb-6">Rent a car in Tetouan at the best price. Flexible pickup and delivery.</p>
+                  <div className="flex items-center text-amber-400 group-hover:translate-x-2 transition-transform duration-300">
+                    <span className="font-semibold">Learn More</span>
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 bg-gradient-to-b from-slate-900 to-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -260,19 +327,6 @@ export default function HomeEN() {
                 <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group"><div className="relative h-48"><Image src="/maroc.png" alt="Driving in Morocco – practical guide" fill className="object-cover group-hover:scale-110 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div></div><div className="p-5"><p className="text-amber-400 text-xs mb-2">Driving Tips</p><h4 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors line-clamp-2">Driving in Morocco: Practical Guide</h4><p className="text-gray-300 text-sm mb-3 line-clamp-2">Rules of the road, tolls, fuel stations and road safety.</p><Link href="/en/blog" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">See Tips<ArrowRight className="ml-1 h-3 w-3" /></Link></div></article>
               </div>
               <div className="text-center mt-12"><Link href="/en/guides" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-full hover:from-amber-400 hover:to-yellow-500 transition-all duration-300 transform hover:scale-105">All Guides<ArrowRight className="ml-2 h-5 w-5" /></Link></div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-gradient-to-b from-black to-slate-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Our <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">Services</span></h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto"><strong>Car rental in Tangier</strong> – Ibn Battouta Airport, Tanger Med Port and city center.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              <Link href="/en/fleet" className="group"><div className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full"><div className="bg-amber-400/20 p-4 rounded-2xl w-16 h-16 mb-6 flex items-center justify-center group-hover:bg-amber-400/30 transition-all duration-300"><Car className="h-8 w-8 text-amber-400" /></div><h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">Cheap Car Rental Tangier</h3><p className="text-gray-300 leading-relaxed mb-6">Economy vehicles perfect for city driving and tight budgets. Best prices in Tangier.</p><div className="flex items-center text-amber-400 group-hover:translate-x-2 transition-transform duration-300"><span className="font-semibold">Learn More</span><ArrowRight className="ml-2 h-5 w-5" /></div></div></Link>
-              <Link href="/en/fleet" className="group"><div className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full"><div className="bg-amber-400/20 p-4 rounded-2xl w-16 h-16 mb-6 flex items-center justify-center group-hover:bg-amber-400/30 transition-all duration-300"><Calendar className="h-8 w-8 text-amber-400" /></div><h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">Airport Car Rental</h3><p className="text-gray-300 leading-relaxed mb-6">Express pickup and return at Tangier Ibn Battouta Airport. Seamless arrivals and departures.</p><div className="flex items-center text-amber-400 group-hover:translate-x-2 transition-transform duration-300"><span className="font-semibold">Discover</span><ArrowRight className="ml-2 h-5 w-5" /></div></div></Link>
             </div>
           </div>
         </section>

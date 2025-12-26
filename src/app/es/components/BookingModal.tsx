@@ -9,6 +9,7 @@ import { useBooking } from '@/contexts/BookingContext'
 import BookingConfirmationPopup from './BookingConfirmationPopup'
 import PhoneInput from './PhoneInput'
 import { calculateTotalPriceForRange } from '@/lib/pricing'
+import Link from 'next/link'
 
 interface Car {
   id: string
@@ -64,16 +65,16 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
   const [confirmationData, setConfirmationData] = useState<{ bookingId: string; totalPrice: number } | null>(null)
 
   const locations = [
-    { value: 'tangier-airport', label: 'Aeropuerto de Tánger Ibn Battouta' },
+    { value: 'tangier-airport', label: 'Aeropuerto Tánger Ibn Battouta' },
     { value: 'tangier-port', label: 'Puerto de Tánger Ville' },
     { value: 'tangier-med', label: 'Puerto Tanger Med' },
-    { value: 'tangier-train', label: 'Estación de tren de Tánger' },
-    { value: 'tetouan', label: 'Centro de Tetuán' },
+    { value: 'tangier-train', label: 'Estación de Tren de Tánger' },
+    { value: 'tetouan', label: 'Centro de la ciudad de Tetuán' },
     { value: 'nassoh-agency', label: 'Agencia Nassoh Car' },
-    { value: 'hotel-delivery', label: 'Entrega en hotel' },
+    { value: 'hotel-delivery', label: 'Entrega en Hotel' },
     { value: 'fes-airport', label: 'Aeropuerto de Fez' },
     { value: 'marrakech-airport', label: 'Aeropuerto de Marrakech' },
-    { value: 'rabat-sale-airport', label: 'Aeropuerto de Rabat-Salé' },
+    { value: 'rabat-sale-airport', label: 'Aeropuerto Rabat-Salé' },
     { value: 'casablanca-airport', label: 'Aeropuerto de Casablanca' },
     { value: 'agadir-airport', label: 'Aeropuerto de Agadir' }
   ]
@@ -97,18 +98,14 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
         car.shortTermPricePerDay ?? undefined
       )
       return total
-    } catch {
+    } catch (error) {
       const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
       return days * car.pricePerDay
     }
   }
 
   const [totalPrice, setTotalPrice] = useState(0)
-
-  useEffect(() => {
-    const updatePrice = async () => { const price = await calculateTotalPrice(); setTotalPrice(price) }
-    updatePrice()
-  }, [formData.startDate, formData.endDate, car])
+  useEffect(() => { (async () => setTotalPrice(await calculateTotalPrice()))() }, [formData.startDate, formData.endDate, car])
 
   const selectedDays = (() => {
     if (!formData.startDate || !formData.endDate) return 0
@@ -119,7 +116,9 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
   })()
 
   const effectivePricePerDay = (() => {
-    if (selectedDays > 0 && totalPrice > 0) { return Math.round((totalPrice / selectedDays) * 100) / 100 }
+    if (selectedDays > 0 && totalPrice > 0) {
+      return Math.round((totalPrice / selectedDays) * 100) / 100
+    }
     return car?.pricePerDay ?? 0
   })()
 
@@ -127,30 +126,30 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
     e.preventDefault()
 
     if (!user && bookingMode === 'auth') {
-      setSubmitStatus({ type: 'error', message: 'Inicie sesión para realizar una reserva.' })
+      setSubmitStatus({ type: 'error', message: 'Por favor inicie sesión para completar una reserva.' })
       return
     }
 
     if (!user && bookingMode === 'guest') {
       if (!formData.guestName || !formData.guestEmail || !formData.guestPhone) {
-        setSubmitStatus({ type: 'error', message: 'Rellene todos los campos de información del invitado.' })
+        setSubmitStatus({ type: 'error', message: 'Por favor complete todos los campos de información del invitado.' })
         return
       }
     }
 
     if (!car) {
-      setSubmitStatus({ type: 'error', message: 'Faltan datos del coche.' })
+      setSubmitStatus({ type: 'error', message: 'Falta información del coche.' })
       return
     }
 
     if (!formData.startDate || !formData.endDate) {
-      setSubmitStatus({ type: 'error', message: 'Seleccione las fechas de inicio y fin.' })
+      setSubmitStatus({ type: 'error', message: 'Por favor seleccione fechas de inicio y fin.' })
       return
     }
     const start = new Date(formData.startDate)
     const end = new Date(formData.endDate)
     if (start >= end) {
-      setSubmitStatus({ type: 'error', message: 'La fecha de devolución debe ser posterior a la fecha de recogida.' })
+      setSubmitStatus({ type: 'error', message: 'La fecha de fin debe ser posterior a la de inicio.' })
       return
     }
 
@@ -162,13 +161,13 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
       if (user) {
         const token = getAuthToken()
         if (!token) {
-          setSubmitStatus({ type: 'error', message: 'Autenticación requerida. Inicie sesión de nuevo.' })
+          setSubmitStatus({ type: 'error', message: 'Autenticación requerida. Por favor inicie sesión de nuevo.' })
           return
         }
 
         const combinedNotes = [
           formData.additionalNotes?.trim() || '',
-          formData.childSeat ? 'Silla niño/bebé solicitada' : ''
+          formData.childSeat ? 'Asiento para niños / bebés solicitado' : ''
         ].filter(Boolean).join(' | ')
 
         const bookingData = {
@@ -184,7 +183,7 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
       } else {
         const combinedGuestNotes = [
           formData.additionalNotes?.trim() || '',
-          formData.childSeat ? 'Silla niño/bebé solicitada' : ''
+          formData.childSeat ? 'Asiento para niños / bebés solicitado' : ''
         ].filter(Boolean).join(' | ')
 
         const guestBookingData = {
@@ -210,7 +209,7 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
         setSubmitStatus(null)
       }
     } catch {
-      setSubmitStatus({ type: 'error', message: 'La reserva falló. Inténtelo de nuevo.' })
+      setSubmitStatus({ type: 'error', message: 'La reserva falló. Por favor inténtelo de nuevo.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -219,17 +218,7 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
   const handleConfirmationClose = () => {
     setShowConfirmationPopup(false)
     setConfirmationData(null)
-    setFormData({
-      pickupLocation: '',
-      dropoffLocation: '',
-      startDate: '',
-      endDate: '',
-      additionalNotes: '',
-      guestName: '',
-      guestEmail: '',
-      guestPhone: '',
-      childSeat: false
-    })
+    setFormData({ pickupLocation: '', dropoffLocation: '', startDate: '', endDate: '', additionalNotes: '', guestName: '', guestEmail: '', guestPhone: '', childSeat: false })
     setBookingMode('auth')
     onClose()
   }
@@ -238,15 +227,15 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8" style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
-      <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max_h-[90vh] sm:max-h-[95vh] h-[90vh] sm:h-auto overflow-hidden sm:overflow-y-auto transform transition-all duration-300 scale-100 opacity-100 flex flex-col sm:block">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] sm:max-h-[95vh] h-[90vh] sm:h-auto overflow-hidden sm:overflow-y-auto transform transition-all duration-300 scale-100 opacity-100 flex flex-col sm:block">
         <div className="flex items-center justify-between p-5 sm:p-8 border-b border-gray-100 bg-gradient-to-br from-gray-50 to-white sticky top-0 z-10 sm:static sm:top-auto">
           <div className="flex items-center space-x-4">
             <div className="bg-gradient-to-r from-yellow-400 to-amber-500 p-3 sm:p-4 rounded-xl shadow-md">
               <Car className="h-6 w-6 sm:h-7 sm:w-7 text-black" />
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Reserva Tu Coche</h2>
-              <p className="text-sm sm:text-base text-gray-600">Completa los detalles de tu reserva</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Reserve su coche</h2>
+              <p className="text-sm sm:text-base text-gray-600">Complete los detalles de su reserva</p>
             </div>
           </div>
           <button onClick={onClose} aria-label="Cerrar" className="p-3 sm:p-3 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-gray-700">
@@ -270,18 +259,18 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
                   <p className="text-sm sm:text-base text-gray-600 mb-3">{car.brand} {car.model}</p>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-2 text-sm text-gray-700">
                     <span className="flex items-center"><Car className="h-4 w-4 mr-1 text-yellow-600" /> {car.category}</span>
-                    <span className="flex items-center"><Users className="h-4 w-4 mr-1 text-yellow-600" /> {car.seats} Plazas</span>
+                    <span className="flex items-center"><Users className="h-4 w-4 mr-1 text-yellow-600" /> {car.seats} asientos</span>
                     <span className="flex items-center"><Settings className="h-4 w-4 mr-1 text-yellow-600" /> Transmisión: {car.transmission}</span>
                     <span className="flex items-center"><Fuel className="h-4 w-4 mr-1 text-yellow-600" /> {car.fuelType}</span>
                   </div>
                 </div>
                 <div className="text-center sm:text-right mt-4 sm:mt-0">
                   <div className="text-3xl sm:text-4xl font-bold text-gray-900">
-                    {selectedDays > 0 ? (<>
-                      €{effectivePricePerDay.toFixed(2)}
-                    </>) : (<>
-                      desde €{car.pricePerDay.toFixed(2)}
-                    </>)}
+                    {selectedDays > 0 ? (
+                      <>€{effectivePricePerDay.toFixed(2)}</>
+                    ) : (
+                      <>desde €{car.pricePerDay.toFixed(2)}</>
+                    )}
                   </div>
                   <div className="text-base text-gray-600">por día</div>
                 </div>
@@ -302,12 +291,12 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
               <div className="text-center py-8 sm:py-12">
                 <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6 sm:p-8 shadow-inner">
                   <User className="h-14 w-14 sm:h-16 sm:w-16 text-yellow-600 mx-auto mb-6" />
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Elige tu opción de reserva</h3>
-                  <p className="text-base sm:text-lg text-gray-600 mb-6">Inicia sesión para reservar más rápido o continúa como invitado.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Elija su opción de reserva</h3>
+                  <p className="text-base sm:text-lg text-gray-600 mb-6">Inicie sesión para reservas más rápidas o continúe como invitado.</p>
                   <div className="space-y-4">
-                    <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify_center">
-                      <a href="/es/iniciar-sesion" className="bg-gradient-to-r from-yellow-400 to-amber-500 text_black font-bold py-3 px-8 rounded-xl shadow-lg hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105">Iniciar sesión</a>
-                      <a href="/es/registro" className="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-xl hover:bg-gray-300 transition-all duration-300">Registrarse</a>
+                    <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center">
+                      <Link href="/es/iniciar-sesion" className="bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-bold py-3 px-8 rounded-xl shadow-lg hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105">Iniciar sesión</Link>
+                      <Link href="/es/registro" className="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-xl hover:bg-gray-300 transition-all duration-300">Registrarse</Link>
                     </div>
                     <div className="relative">
                       <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-300" /></div>
@@ -323,15 +312,15 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
                   <div>
                     <label htmlFor="startDate" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Fecha de recogida</label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text_gray-400" />
-                      <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleInputChange} lang="es" placeholder="dd/mm/yyyy" required className="mt-1 block w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900" />
+                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleInputChange} placeholder="yyyy-mm-dd" required className="mt-1 block w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900" />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="endDate" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Fecha de devolución</label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text_gray-400" />
-                      <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleInputChange} lang="es" placeholder="dd/mm/yyyy" required className="mt-1 block w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900" />
+                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleInputChange} placeholder="yyyy-mm-dd" required className="mt-1 block w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900" />
                     </div>
                   </div>
                 </div>
@@ -342,7 +331,7 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
                     <div className="relative">
                       <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                       <select id="pickupLocation" name="pickupLocation" value={formData.pickupLocation} onChange={handleInputChange} required className="mt-1 block w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900">
-                        <option value="">Seleccione un lugar</option>
+                        <option value="">Seleccione una ubicación</option>
                         {locations.map(loc => (<option key={loc.value} value={loc.value}>{loc.label}</option>))}
                       </select>
                     </div>
@@ -352,7 +341,7 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
                     <div className="relative">
                       <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                       <select id="dropoffLocation" name="dropoffLocation" value={formData.dropoffLocation} onChange={handleInputChange} className="mt-1 block w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900">
-                        <option value="">Igual que el lugar de recogida</option>
+                        <option value="">Mismo que la recogida</option>
                         {locations.map(loc => (<option key={loc.value} value={loc.value}>{loc.label}</option>))}
                       </select>
                     </div>
@@ -374,13 +363,13 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
                         </div>
                       </div>
                       <div>
-                        <label htmlFor="guestEmail" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Correo electrónico</label>
-                        <input type="email" id="guestEmail" name="guestEmail" value={formData.guestEmail} onChange={handleInputChange} required className="mt-1 block w_full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base" />
+                        <label htmlFor="guestEmail" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Dirección de correo electrónico</label>
+                        <input type="email" id="guestEmail" name="guestEmail" value={formData.guestEmail} onChange={handleInputChange} required className="mt-1 block w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base" />
                       </div>
                     </div>
                     <div>
                       <label htmlFor="guestPhone" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Número de teléfono</label>
-                      <PhoneInput id="guestPhone" name="guestPhone" value={formData.guestPhone} onChange={(value) => setFormData(prev => ({ ...prev, guestPhone: value }))} placeholder="Introduce tu número de teléfono" required className="mt-1" />
+                      <PhoneInput id="guestPhone" name="guestPhone" value={formData.guestPhone} onChange={(value) => setFormData(prev => ({ ...prev, guestPhone: value }))} placeholder="Ingrese su número de teléfono" required className="mt-1" />
                     </div>
                   </div>
                 )}
@@ -389,34 +378,38 @@ export default function BookingModal({ isOpen, onClose, car }: BookingModalProps
                   <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">Opciones</h4>
                   <label className="flex items-center space-x-3 cursor-pointer select-none">
                     <input type="checkbox" name="childSeat" checked={formData.childSeat} onChange={(e) => setFormData(prev => ({ ...prev, childSeat: e.target.checked }))} className="h-5 w-5 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500" />
-                    <span className="text-gray-800">Silla para niño / bebé</span>
+                    <span className="text-gray-800">Asiento para niños / bebés</span>
                   </label>
                 </div>
 
                 <div>
                   <label htmlFor="additionalNotes" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Notas adicionales (Opcional)</label>
-                  <textarea id="additionalNotes" name="additionalNotes" value={formData.additionalNotes} onChange={handleInputChange} rows={4} className="mt-1 block w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base resize-y"></textarea>
+                  <textarea id="additionalNotes" name="additionalNotes" rows={3} value={formData.additionalNotes} onChange={handleInputChange} className="mt-1 block w-full px-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 text-base text-gray-900" placeholder="Número de vuelo, requisitos especiales, etc."></textarea>
                 </div>
 
                 {submitStatus && (
-                  <div className={`mb-4 p-4 sm:p-5 rounded-xl shadow-md ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-red-100 text-red-800 border border-red-200'}`}>
-                    <p className="text-sm sm:text-base font-medium">{submitStatus.message}</p>
+                  <div className={`p-4 rounded-lg ${submitStatus.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                    {submitStatus.message}
                   </div>
                 )}
 
-                <div className="flex flex-col sm:flex-row-reverse justify-end space-y-3 sm:space-y-0 sm:space-x-3 sm:space-x-reverse pt-4 sm:pt-6 border-t border-gray-100 mt-6 sm:mt-8 sticky bottom-0 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 p-4 sm:static sm:bg-transparent sm:p-0">
-                  <button type="button" onClick={onClose} className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded-xl shadow-sm text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-colors duration-200">Cancelar</button>
-                  <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-6 py-3 border border-transparent rounded-xl shadow-lg text-base font-medium text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105">{isSubmitting ? 'Confirmando...' : `Confirmar Reserva • €${totalPrice.toFixed(2)}`}</button>
+                <div className="flex justify-end pt-4">
+                  <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-xl shadow-lg hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-base sm:text-lg">
+                    {isSubmitting ? 'Procesando...' : 'Reservar ahora'}
+                  </button>
                 </div>
               </form>
             )}
           </div>
         </div>
-
-        {confirmationData && (
-          <BookingConfirmationPopup isOpen={showConfirmationPopup} onClose={handleConfirmationClose} bookingId={confirmationData.bookingId} totalPrice={confirmationData.totalPrice} />
-        )}
       </div>
+
+      <BookingConfirmationPopup
+        isOpen={showConfirmationPopup}
+        onClose={handleConfirmationClose}
+        bookingId={confirmationData?.bookingId || ''}
+        totalPrice={confirmationData?.totalPrice || 0}
+      />
     </div>
   )
 }

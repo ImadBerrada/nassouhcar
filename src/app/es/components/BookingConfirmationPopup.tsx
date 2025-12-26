@@ -33,7 +33,7 @@ export default function BookingConfirmationPopup({ isOpen, onClose, bookingId, t
 
         <div className="p-4 sm:p-6 space-y-4 sm:space-y-5">
           <div className="text-center">
-            <p className="text-gray-700 text-sm sm:text-base mb-2">Tu reserva está siendo confirmada.</p>
+            <p className="text-gray-700 text-sm sm:text-base mb-2">Su reserva está siendo confirmada.</p>
             <p className="text-xl sm:text-2xl font-bold text-gray-900">Total: €{totalPrice.toFixed(2)}</p>
           </div>
 
@@ -41,8 +41,8 @@ export default function BookingConfirmationPopup({ isOpen, onClose, bookingId, t
             <div className="flex items-start space-x-2 sm:space-x-3">
               <div className="bg-blue-100 rounded-full p-1.5 sm:p-2 flex-shrink-0"><Mail className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" /></div>
               <div className="flex-1">
-                <h3 className="font-semibold text-blue-900 mb-1 text-sm sm:text-base">Revisa tu correo</h3>
-                <p className="text-blue-700 text-xs sm:text-sm">Recibirás un correo de confirmación con todos los detalles de la reserva.</p>
+                <h3 className="font-semibold text-blue-900 mb-1 text-sm sm:text-base">Revise su correo electrónico</h3>
+                <p className="text-blue-700 text-xs sm:text-sm">Recibirá un correo de confirmación con todos los detalles de la reserva.</p>
               </div>
             </div>
           </div>
@@ -52,14 +52,14 @@ export default function BookingConfirmationPopup({ isOpen, onClose, bookingId, t
               <div className="bg-amber-100 rounded-full p-1.5 sm:p-2 flex-shrink-0"><AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600" /></div>
               <div className="flex-1">
                 <h3 className="font-semibold text-amber-900 mb-1 text-sm sm:text-base">Aviso importante</h3>
-                <p className="text-amber-700 text-xs sm:text-sm">Por favor, revisa tu carpeta de spam si no recibes el correo en unos minutos.</p>
+                <p className="text-amber-700 text-xs sm:text-sm">Por favor, revise su carpeta de spam si no recibe el correo en unos minutos.</p>
               </div>
             </div>
           </div>
 
           <div className="text-center pt-2 sm:pt-3">
             <button onClick={handleClose} className="bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg sm:rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
-              Entendido
+              ¡Entendido, gracias!
             </button>
           </div>
         </div>

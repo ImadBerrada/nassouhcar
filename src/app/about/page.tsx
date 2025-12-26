@@ -1,13 +1,10 @@
-import { Car,  MapPin, CreditCard, Users, Phone, Mail, CheckCircle,  Award } from 'lucide-react';
+import { Crown, Car,  MapPin, CreditCard, Users, Phone, Mail, CheckCircle,  Award } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'À Propos | Nassoh Car - Location de Voiture Économique Maroc',
-  description: 'Découvrez Nassoh Car, votre partenaire de confiance pour la location de voiture au Maroc. Véhicules économiques, service excellent et prix compétitifs à Tanger, Tétouan et dans tout le Maroc.',
-  keywords: 'à propos nassoh car, location voiture maroc, agence location tanger, location voiture tétouan, location voiture économique maroc, agence location marocaine',
-  alternates: {
-    canonical: 'https://www.nassohcar.com/about'
-  }
+  title: 'About Us | Nassoh Car - Premium Car Rental Morocco',
+  description: 'Learn about Nassoh Car, your trusted car rental partner in Morocco. Premium vehicles, excellent service, and competitive prices in Tangier, Tetouan, and across Morocco.',
+  keywords: 'about nassoh car, car rental morocco, tangier car rental company, tetouan car rental, premium car rental morocco, moroccan car rental agency'
 };
 
 const AboutPage = () => {
@@ -20,13 +17,14 @@ const AboutPage = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-6">
+          <div className="flex items-center justify-center space-x-3 mb-6">
+            <Crown className="h-12 w-12 text-amber-400" />
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
-              À Propos de NASSOH CAR
+              About NASSOH CAR
             </h1>
           </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Location de Voiture à Tanger & Tétouan - Votre partenaire de confiance pour la location de véhicules économiques
+            Car Rental in Tangier & Tetouan - Your trusted partner for premium vehicle rentals
           </p>
         </div>
       </section>
@@ -36,11 +34,11 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Company Introduction */}
           <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 mb-16 border border-amber-400/20">
-            <h2 className="text-3xl font-bold text-amber-400 mb-6">À Propos de NASSOH CAR</h2>
+            <h2 className="text-3xl font-bold text-amber-400 mb-6">About NASSOH CAR</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
-              NASSOH CAR est une agence de location de voitures marocaine fiable offrant une large sélection de véhicules 
-              pour un usage personnel et professionnel. Que vous visitiez Tanger pour le tourisme, les affaires ou les voyages 
-              en famille, nous fournissons la voiture adaptée à chaque besoin, avec une livraison rapide et un excellent service.
+              NASSOH CAR is a reliable Moroccan car rental agency offering a wide selection of vehicles for personal and professional use. 
+              Whether you&apos;re visiting Tangier for tourism, business, or family travel, we provide the right car for every need, 
+              with fast delivery and excellent service.
             </p>
           </div>
 
@@ -48,16 +46,16 @@ const AboutPage = () => {
           <div className="mb-16">
             <div className="text-center mb-12">
               <Car className="h-12 w-12 text-amber-400 mx-auto mb-4" />
-              <h2 className="text-4xl font-bold text-white mb-4">Un Véhicule pour Chaque Besoin : Du Compact aux 7 Places</h2>
+              <h2 className="text-4xl font-bold text-white mb-4">🚗 A Vehicle for Every Need: From Compact to 7-Seaters</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "Voitures Compactes", desc: "Idéales pour la conduite en ville et les trajets quotidiens", icon: "🚗" },
-                { title: "Berlines Économiques", desc: "Options abordables et économes en carburant", icon: "🚙" },
-                { title: "SUV et 4x4", desc: "Parfaits pour les road trips et les voyages longue distance", icon: "🚐" },
-                { title: "Véhicules 7 Places", desc: "Parfaits pour les familles et les voyages de groupe", icon: "🚌" },
-                { title: "Voitures Familiales", desc: "Pour un usage exécutif ou des expériences familiales", icon: "🏎️" }
+                { title: "Compact Cars", desc: "Ideal for city driving and daily commutes", icon: "🚗" },
+                { title: "Economy Sedans", desc: "Affordable and fuel-efficient options", icon: "🚙" },
+                { title: "SUVs and 4x4s", desc: "Great for road trips and long-distance travel", icon: "🚐" },
+                { title: "7-Seater Vehicles", desc: "Perfect for families and group travel", icon: "🚌" },
+                { title: "Luxury Cars", desc: "For executive use or premium experiences", icon: "🏎️" }
               ].map((vehicle, index) => (
                 <div key={index} className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-amber-400/20 hover:border-amber-400/40 transition-all duration-300">
                   <div className="text-4xl mb-4">{vehicle.icon}</div>
@@ -69,7 +67,7 @@ const AboutPage = () => {
             
             <div className="bg-amber-400/10 rounded-2xl p-6 mt-8">
               <p className="text-gray-300 text-center">
-                Toutes nos voitures sont bien entretenues, climatisées et assurées.
+                All our cars are well-maintained, air-conditioned, and insured.
               </p>
             </div>
           </div>
@@ -78,22 +76,22 @@ const AboutPage = () => {
           <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 mb-16 border border-amber-400/20">
             <div className="flex items-center mb-6">
               <CreditCard className="h-8 w-8 text-amber-400 mr-4" />
-              <h2 className="text-3xl font-bold text-amber-400">💳 Caution Requise</h2>
+              <h2 className="text-3xl font-bold text-amber-400">💳 Security Deposit Required</h2>
             </div>
             <p className="text-lg text-gray-300 mb-6">
-              Une caution remboursable de <span className="text-amber-400 font-bold">500 EUR</span> est requise pour chaque location.
+              A refundable deposit of <span className="text-amber-400 font-bold">5,000 EUR</span> is required for every rental.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-amber-400/10 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-3">Options de Paiement :</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Payment Options:</h3>
                 <ul className="space-y-2 text-gray-300">
-                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-amber-400 mr-2" />En espèces lors de la livraison du véhicule</li>
-                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-amber-400 mr-2" />Bloquée sur une carte de crédit valide (non débitée, seulement retenue temporairement)</li>
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-amber-400 mr-2" />In cash upon delivery of the vehicle</li>
+                  <li className="flex items-center"><CheckCircle className="h-5 w-5 text-amber-400 mr-2" />Blocked on a valid credit card (not charged, only held temporarily)</li>
                 </ul>
               </div>
               <div className="bg-green-400/10 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-3">Retour de la Caution :</h3>
-                <p className="text-gray-300">La caution est restituée à la fin de la location, à condition que le véhicule soit rendu en bon état.</p>
+                <h3 className="text-xl font-bold text-white mb-3">Deposit Return:</h3>
+                <p className="text-gray-300">The deposit is returned at the end of the rental, provided the vehicle is returned in good condition.</p>
               </div>
             </div>
           </div>
@@ -102,17 +100,17 @@ const AboutPage = () => {
           <div className="mb-16">
             <div className="text-center mb-12">
               <MapPin className="h-12 w-12 text-amber-400 mx-auto mb-4" />
-              <h2 className="text-4xl font-bold text-white mb-4">📍 Livraison aux Lieux Clés</h2>
-              <p className="text-lg text-gray-300">Nous livrons les voitures directement aux endroits les plus pratiques :</p>
+              <h2 className="text-4xl font-bold text-white mb-4">📍 Free Delivery to Key Locations</h2>
+              <p className="text-lg text-gray-300">We deliver cars directly to the most convenient locations:</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                "Aéroport Tanger Ibn Battouta",
-                "Port Tanger Med",
-                "Port Tanger Ville",
-                "Gare de Tanger",
-                "Centre-ville de Tétouan"
+                "Tangier Ibn Battouta Airport",
+                "Tanger Med Port",
+                "Tangier Ville Port",
+                "Tangier Train Station",
+                "Downtown Tetouan"
               ].map((location, index) => (
                 <div key={index} className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-amber-400/20 text-center">
                   <MapPin className="h-8 w-8 text-amber-400 mx-auto mb-3" />
@@ -126,15 +124,15 @@ const AboutPage = () => {
           <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 mb-16 border border-amber-400/20">
             <div className="flex items-center mb-8">
               <Users className="h-8 w-8 text-amber-400 mr-4" />
-              <h2 className="text-3xl font-bold text-amber-400">💼 Conçu pour Tous Types de Voyageurs</h2>
+              <h2 className="text-3xl font-bold text-amber-400">💼 Designed for All Types of Travelers</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
-                { type: "Touriste", desc: "Ayant besoin d'un SUV ou d'une voiture compacte depuis l'aéroport", icon: "🏖️" },
-                { type: "Professionnel", desc: "En voyage d'affaires à Tanger", icon: "💼" },
-                { type: "Famille", desc: "Ayant besoin d'un véhicule spacieux 7 places", icon: "👨‍👩‍👧‍👦" },
-                { type: "Locataire Long Terme", desc: "Recherchant une location mensuelle au meilleur tarif", icon: "📅" }
+                { type: "Tourist", desc: "Needing an SUV or compact car from the airport", icon: "🏖️" },
+                { type: "Business Professional", desc: "On a business trip in Tangier", icon: "💼" },
+                { type: "Family", desc: "In need of a spacious 7-seater vehicle", icon: "👨‍👩‍👧‍👦" },
+                { type: "Long-term Renter", desc: "Looking for a monthly rental at the best rate", icon: "📅" }
               ].map((traveler, index) => (
                 <div key={index} className="flex items-start space-x-4 p-4 bg-amber-400/5 rounded-xl">
                   <div className="text-3xl">{traveler.icon}</div>
@@ -147,24 +145,24 @@ const AboutPage = () => {
             </div>
             
             <div className="text-center mt-8">
-              <p className="text-lg text-amber-400 font-semibold">NASSOH CAR a la solution pour vous.</p>
-              <p className="text-gray-300 mt-2">👉 Consultez notre flotte complète et réservez en ligne sur : <span className="text-amber-400">nassohcar.com</span></p>
+              <p className="text-lg text-amber-400 font-semibold">NASSOH CAR has the solution for you.</p>
+              <p className="text-gray-300 mt-2">👉 See our full fleet and book online at: <span className="text-amber-400">nassohcar.com</span></p>
             </div>
           </div>
 
           {/* Why Choose Us */}
           <div className="text-center mb-12">
             <Award className="h-12 w-12 text-amber-400 mx-auto mb-4" />
-            <h2 className="text-4xl font-bold text-white mb-8">✅ Pourquoi Choisir NASSOH CAR ?</h2>
+            <h2 className="text-4xl font-bold text-white mb-8">✅ Why Choose NASSOH CAR?</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Prix abordables journaliers, hebdomadaires et mensuels",
-              "Assurance incluse dans toutes les locations",
-              "Aucun frais caché — contrats clairs et transparents",
-              "Support en arabe, français et anglais",
-              "Réservation rapide via WhatsApp, téléphone ou site web"
+              "Affordable daily, weekly, and monthly prices",
+              "Insurance included in all rentals",
+              "No hidden fees — clear and transparent contracts",
+              "Support in Arabic, French, and English",
+              "Fast booking via WhatsApp, phone, or website"
             ].map((benefit, index) => (
               <div key={index} className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-amber-400/20">
                 <div className="flex items-center space-x-3">
@@ -177,7 +175,7 @@ const AboutPage = () => {
 
           {/* Contact CTA */}
           <div className="bg-gradient-to-r from-amber-400/20 to-yellow-400/20 rounded-3xl p-8 md:p-12 mt-16 text-center border border-amber-400/30">
-            <h2 className="text-3xl font-bold text-white mb-6">Prêt à Réserver Votre Voiture Parfaite ?</h2>
+            <h2 className="text-3xl font-bold text-white mb-6">Ready to Book Your Perfect Car?</h2>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
               <div className="flex items-center space-x-3">
                 <Phone className="h-6 w-6 text-amber-400" />
@@ -185,7 +183,7 @@ const AboutPage = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-6 w-6 text-amber-400" />
-                <span className="text-lg text-gray-300">contact@nassohcar.com</span>
+                <span className="text-lg text-gray-300">admin@nassohcar.com</span>
               </div>
             </div>
           </div>
