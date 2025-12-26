@@ -367,27 +367,7 @@ export default function HomeES() {
             </article>
           </div>
 
-          <div className="mt-16 pt-16 border-t border-amber-400/20">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Guías de Viaje <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">Exclusivas</span></h3>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">Descubra los destinos más populares de Marruecos con nuestras guías detalladas</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
-                <div className="relative h-48"><Image src="/tangier.webp" alt="Guía atracciones Tánger" fill className="object-cover group-hover:scale-110 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div></div>
-                <div className="p-5"><p className="text-amber-400 text-xs mb-2">Guía Completa</p><h4 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors line-clamp-2">Guía Tánger 2025: Mejores Atracciones</h4><p className="text-gray-300 text-sm mb-3 line-clamp-2">Explore Tánger en coche de alquiler – itinerarios optimizados</p><Link href="/es/guias/guia-tanger-completa" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">Descubrir Tánger<ArrowRight className="ml-1 h-3 w-3" /></Link></div>
-              </article>
-              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
-                <div className="relative h-48"><Image src="/tanger.webp" alt="Guía completa Tánger" fill className="object-cover group-hover:scale-110 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div></div>
-                <div className="p-5"><p className="text-amber-400 text-xs mb-2">Guía de Ciudad</p><h4 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors line-clamp-2">Guía Completa Tánger: Itinerarios y Consejos</h4><p className="text-gray-300 text-sm mb-3 line-clamp-2">Descubra Tánger: medina, Cap Spartel, Grutas de Hércules y mejores sitios.</p><Link href="/es/guias/guia-tanger-completa" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">Leer la Guía<ArrowRight className="ml-1 h-3 w-3" /></Link></div>
-              </article>
-              <article className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
-                <div className="relative h-48"><Image src="/maroc.png" alt="Conducir en Marruecos – guía práctica" fill className="object-cover group-hover:scale-110 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div></div>
-                <div className="p-5"><p className="text-amber-400 text-xs mb-2">Consejos de Conducción</p><h4 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors line-clamp-2">Conducir en Marruecos: Guía Práctica</h4><p className="text-gray-300 text-sm mb-3 line-clamp-2">Reglas de tráfico, peajes, gasolineras y seguridad vial.</p><Link href="/es/blog" className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center text-sm">Ver Consejos<ArrowRight className="ml-1 h-3 w-3" /></Link></div>
-              </article>
-            </div>
-            <div className="text-center mt-12"><Link href="/es/guias" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-full hover:from-amber-400 hover:to-yellow-500 transition-all duration-300 transform hover:scale-105">Todas las Guías<ArrowRight className="ml-2 h-5 w-5" /></Link></div>
-          </div>
+
         </div>
       </section>
 
