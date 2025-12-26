@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthContext'
 import { Eye, EyeOff, Mail, Lock, User, Car } from 'lucide-react'
-import PhoneInput from '@/app/es/components/PhoneInput'
+import PhoneInput from '@/app/en/components/PhoneInput'
 
 export default function RegisterPageES() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: '' })
@@ -24,9 +24,9 @@ export default function RegisterPageES() {
     if (!validateForm()) { setIsLoading(false); return }
     try {
       await register({ name: formData.name, email: formData.email, phone: formData.phone, password: formData.password })
-      router.push('/dashboard')
+      router.push('/es/panel')
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Registro fallido. Inténtelo de nuevo.')
+      setError(err instanceof Error ? err.message : 'Error en el registro. Por favor inténtelo de nuevo.')
     } finally { setIsLoading(false) }
   }
 
@@ -36,14 +36,14 @@ export default function RegisterPageES() {
         <div className="text-center">
           <div className="flex justify-center"><div className="bg-blue-600 p-3 rounded-full"><Car className="h-8 w-8 text-white" /></div></div>
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Crea tu cuenta</h2>
-          <p className="mt-2 text-sm text-gray-600">O <Link href="/es/iniciar-sesion" className="font-medium text-blue-600 hover:text-blue-500">inicia sesión en tu cuenta</Link></p>
+          <p className="mt-2 text-sm text-gray-600">O <Link href="/es/iniciar-sesion" className="font-medium text-blue-600 hover:text-blue-500">inicia sesión en tu cuenta existente</Link></p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="bg-white p-8 rounded-xl shadow-lg space-y-6">
             {error && (<div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">{error}</div>)}
 
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Nombre completo</label>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><User className="h-5 w-5 text-gray-400" /></div>
                 <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900" placeholder="Introduce tu nombre completo" />
@@ -51,7 +51,7 @@ export default function RegisterPageES() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Correo electrónico</label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Correo Electrónico</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><Mail className="h-5 w-5 text-gray-400" /></div>
                 <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Introduce tu correo" />
@@ -59,7 +59,7 @@ export default function RegisterPageES() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Número de teléfono</label>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Número de Teléfono</label>
               <PhoneInput id="phone" name="phone" value={formData.phone} onChange={(value) => setFormData(prev => ({ ...prev, phone: value }))} placeholder="Introduce tu número de teléfono" required className="w-full" />
             </div>
 
@@ -73,7 +73,7 @@ export default function RegisterPageES() {
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">Confirmar contraseña</label>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">Confirmar Contraseña</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><Lock className="h-5 w-5 text-gray-400" /></div>
                 <input id="confirmPassword" name="confirmPassword" type={showConfirmPassword ? 'text' : 'password'} required value={formData.confirmPassword} onChange={handleChange} className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Confirma tu contraseña" />
@@ -91,7 +91,7 @@ export default function RegisterPageES() {
             </button>
           </div>
         </form>
-        <div className="text-center"><p className="text-sm text-gray-600">¿Ya tienes cuenta? <Link href="/es/iniciar-sesion" className="font-medium text-blue-600 hover:text-blue-500">Inicia sesión aquí</Link></p></div>
+        <div className="text-center"><p className="text-sm text-gray-600">¿Ya tienes una cuenta? <Link href="/es/iniciar-sesion" className="font-medium text-blue-600 hover:text-blue-500">Inicia sesión aquí</Link></p></div>
       </div>
     </div>
   )

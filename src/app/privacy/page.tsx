@@ -4,10 +4,7 @@ import { Shield, Phone, Mail, FileText, Clock, Users, Eye, Lock, Globe, Database
 export const metadata: Metadata = {
   title: 'Privacy Policy | Nassoh Car - Data Protection & Privacy',
   description: 'Read Nassoh Car\'s privacy policy to understand how we collect, use, and protect your personal information. Your privacy and data security are our top priorities.',
-  keywords: 'privacy policy nassoh car, data protection, personal information, privacy rights, data security, morocco car rental privacy',
-  alternates: {
-    canonical: 'https://www.nassohcar.com/privacy'
-  }
+  keywords: 'privacy policy nassoh car, data protection, personal information, privacy rights, data security, morocco car rental privacy'
 }
 
 const PrivacyPolicy = () => {
@@ -25,7 +22,7 @@ const PrivacyPolicy = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8 group">
             <div className="bg-gradient-to-br from-blue-400/20 to-cyan-500/20 p-8 rounded-3xl backdrop-blur-sm border border-blue-400/30 shadow-2xl group-hover:shadow-blue-500/25 transition-all duration-500 group-hover:scale-105">
-              <Shield className="h-10 w-10 text-blue-400 mx-auto group-hover:text-cyan-300 transition-colors duration-300" />
+              <Shield className="h-20 w-20 text-blue-400 mx-auto group-hover:text-cyan-300 transition-colors duration-300" />
             </div>
           </div>
           
@@ -366,7 +363,7 @@ const PrivacyPolicy = () => {
                 <div className="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-all duration-300">
                   <Mail className="h-7 w-7 text-white" />
                 </div>
-                <span className="text-xl font-semibold text-white">contact@nassohcar.com</span>
+                <span className="text-xl font-semibold text-white">admin@nassohcar.com</span>
               </div>
             </div>
           </div>

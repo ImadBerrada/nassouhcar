@@ -24,7 +24,7 @@ export default function RegisterPageEN() {
     if (!validateForm()) { setIsLoading(false); return }
     try {
       await register({ name: formData.name, email: formData.email, phone: formData.phone, password: formData.password })
-      router.push('/dashboard')
+      router.push('/en/dashboard')
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Registration failed. Please try again.')
     } finally { setIsLoading(false) }

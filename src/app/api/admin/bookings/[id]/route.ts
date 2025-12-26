@@ -120,18 +120,15 @@ export async function PUT(
           select: {
             id: true,
             name: true,
-            email: true,
-            phone: true
+            email: true
           }
         },
         car: {
           select: {
             id: true,
-            name: true,
             brand: true,
             model: true,
-            year: true,
-            pricePerDay: true
+            year: true
           }
         }
       }
@@ -148,7 +145,7 @@ export async function PUT(
             customerEmail,
             customerName,
             bookingId: booking.id,
-            vehicleModel: `${booking.car.name} ${booking.car.model} ${booking.car.year}`,
+            vehicleModel: `${booking.car.brand} ${booking.car.model} ${booking.car.year}`,
             startDate: new Date(booking.startDate).toLocaleDateString('fr-FR'),
             endDate: new Date(booking.endDate).toLocaleDateString('fr-FR'),
             totalAmount: booking.totalPrice,
@@ -157,46 +154,6 @@ export async function PUT(
         }
       } catch (emailError) {
         console.error('Failed to send cancellation notification:', emailError)
-        // Don't fail the booking update if email fails
-      }
-    }
-
-    // Send confirmation notification if status is CONFIRMED
-    if (status === 'CONFIRMED') {
-      try {
-        const customerEmail = booking.user?.email || booking.guestEmail
-        const customerName = booking.user?.name || booking.guestName
-        const customerPhone = booking.user?.phone || booking.guestPhone
-        
-        if (customerEmail && customerName) {
-          // Calculate total days
-          const startDate = new Date(booking.startDate)
-          const endDate = new Date(booking.endDate)
-          const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
-          
-          await emailService.sendBookingConfirmationNotification({
-              bookingId: booking.id,
-              customerEmail,
-              customerName,
-              customerPhone: customerPhone || '',
-              car: {
-                name: booking.car.name,
-                brand: booking.car.brand,
-                model: booking.car.model,
-                year: booking.car.year,
-                pricePerDay: booking.car.pricePerDay
-              },
-              startDate: startDate,
-              endDate: endDate,
-              totalDays: totalDays,
-              totalPrice: booking.totalPrice,
-              pickupLocation: booking.pickupLocation,
-              dropoffLocation: booking.dropoffLocation || undefined,
-              additionalNotes: booking.additionalNotes || undefined
-            })
-        }
-      } catch (emailError) {
-        console.error('Failed to send confirmation notification:', emailError)
         // Don't fail the booking update if email fails
       }
     }

@@ -5,7 +5,7 @@ import { generateCityKeywords } from '../../lib/seo-keywords'
 export const metadata: Metadata = {
   title: "Location Voiture Maroc depuis la France - Nassoh Car Tanger",
   description: "Location de voiture au Maroc pour les résidents français. Service premium à Tanger, livraison aéroport Ibn Battouta et port Med. Réservation en ligne depuis la France.",
-  keywords: generateCityKeywords('fr', 'Tanger', true).join(', '),
+  keywords: [...generateCityKeywords('fr', 'Tanger').primary, ...generateCityKeywords('fr', 'Tanger').longTail].join(', '),
   authors: [{ name: "Nassoh Car - Location Voiture Maroc France" }],
   creator: "Nassoh Car",
   publisher: "Nassoh Car - Car Rental Morocco France",

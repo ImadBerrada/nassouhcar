@@ -23,8 +23,8 @@ export default function LoginPageEN() {
       const response = await fetch('/api/auth/verify', { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } })
       if (response.ok) {
         const userData = await response.json()
-        if (userData.user.role === 'ADMIN') { router.push('/admin/dashboard') } else { router.push('/dashboard') }
-      } else { router.push('/dashboard') }
+        if (userData.user.role === 'ADMIN') { router.push('/admin/dashboard') } else { router.push('/en/dashboard') }
+      } else { router.push('/en/dashboard') }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Login failed. Please try again.')
     } finally { setIsLoading(false) }

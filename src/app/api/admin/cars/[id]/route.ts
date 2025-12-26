@@ -67,7 +67,6 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
         fuelType: carData.fuelType || existingCar.fuelType,
         seats: carData.seats ? parseInt(carData.seats) : existingCar.seats,
         pricePerDay: carData.pricePerDay ? parseFloat(carData.pricePerDay) : existingCar.pricePerDay,
-        shortTermPricePerDay: carData.shortTermPricePerDay !== undefined ? (carData.shortTermPricePerDay === null ? null : parseFloat(carData.shortTermPricePerDay)) : existingCar.shortTermPricePerDay,
         quantity: carData.quantity ? parseInt(carData.quantity) : existingCar.quantity,
         image: carData.image !== undefined ? carData.image : existingCar.image,
         description: carData.description !== undefined ? carData.description : existingCar.description,

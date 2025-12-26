@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthContext'
-import { Eye, EyeOff, Mail, Lock, User, Car } from 'lucide-react'
-import PhoneInput from '@/components/PhoneInput'
+import { Eye, EyeOff, Mail, Lock, User, Phone, Car } from 'lucide-react'
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -145,17 +144,23 @@ export default function RegisterPage() {
             {/* Phone Field */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                Numéro de téléphone
+                Phone Number
               </label>
-              <PhoneInput
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={(value) => setFormData(prev => ({ ...prev, phone: value }))}
-                placeholder="Entrez votre numéro de téléphone"
-                required
-                className="w-full"
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Phone className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Enter your phone number"
+                />
+              </div>
             </div>
 
             {/* Password Field */}
