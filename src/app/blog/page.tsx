@@ -385,21 +385,6 @@ export default function BlogPage() {
       tags: ["Boukhalef", "Aéroport", "Ibn Battuta"]
     },
     {
-      id: 30,
-      citySlug: "location-voiture-tanger-aeroport-sans-caution",
-      title: "Location Voiture Tanger Aéroport Sans Caution 2025 - 0€ Caution | Nassoh Car",
-      excerpt: "Location de voiture à l'aéroport de Tanger sans caution. Service innovant avec 0€ de caution et formalités simplifiées pour un départ immédiat.",
-      fullPreview: "Révolutionnez votre expérience de location avec notre service sans caution à l'aéroport de Tanger. Procédure simplifiée et départ immédiat garanti.",
-      date: "November 20, 2024",
-      category: "Transport",
-      image: "/tangier.webp",
-      readTime: "8 min read",
-      featured: false,
-      views: "2.3k",
-      rating: 4.9,
-      tags: ["Sans caution", "0€", "Innovant"]
-    },
-    {
       id: 31,
       citySlug: "location-voiture-tanger-pas-cher",
       title: "Location Voiture Tanger Pas Cher 2025 - Tarifs Imbattables dès 170 DH",
@@ -550,7 +535,7 @@ export default function BlogPage() {
             </span>
           </h1>
           <p className="text-2xl md:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-            Découvrez les Secrets du Maroc avec nos Guides Experts & Conseils Location Voiture Tanger
+            Découvrez les Secrets du Maroc avec nos Conseils Location Voiture Tanger
           </p>
           <div className="flex items-center justify-center space-x-8 text-yellow-400">
             <div className="flex items-center space-x-2">
@@ -563,7 +548,7 @@ export default function BlogPage() {
           </div>
         <div className="flex items-center space-x-2">
           <Award className="h-6 w-6" />
-          <span className="text-xl font-bold">Guides Experts</span>
+          <span className="text-xl font-bold">Experts Locaux</span>
         </div>
           </div>
           <div className="mt-8 flex justify-center">
@@ -770,19 +755,6 @@ export default function BlogPage() {
             </div>
 
             {/* Categories section removed to prevent 404 errors */}
-            <div className="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6 flex items-center">
-                <Tag className="h-6 w-6 mr-3 text-yellow-500" />
-                Explorez nos Guides
-              </h3>
-              <div className="text-center py-8">
-                <p className="text-slate-600 mb-4">Découvrez nos guides complets pour votre voyage au Maroc</p>
-                <Link href="/guides" className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-bold py-3 px-6 rounded-xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                  Voir tous les guides
-                </Link>
-              </div>
-            </div>
 
             {/* Enhanced Featured Products */}
             <div className="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">

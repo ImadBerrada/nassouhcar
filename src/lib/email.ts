@@ -65,7 +65,7 @@ class EmailService {
         pass: process.env.EMAIL_SERVER_PASSWORD || ''
       },
       tls: {
-        rejectUnauthorized: true,
+        rejectUnauthorized: false,
         ciphers: 'TLSv1.2:TLSv1.3:!SSLv2:!SSLv3'
       },
       dkim: {
@@ -113,24 +113,24 @@ class EmailService {
         html: optimized.html,
         text: emailData.text || this.stripHtml(optimized.html),
         headers: {
-          'X-Priority': '3',
-          'X-MSMail-Priority': 'Normal',
-          'X-Mailer': 'Nodemailer',
-          'Reply-To': this.fromEmail,
-          'Return-Path': this.fromEmail,
-          'List-Unsubscribe': `<mailto:unsubscribe@nassohcar.com>`,
-          'X-Auto-Response-Suppress': 'All',
-          'MIME-Version': '1.0',
-          'Date': new Date().toUTCString(),
-          'X-Originating-IP': '[198.54.127.87]',
-          'Precedence': 'list',
-          'X-Entity-ID': 'nassohcar-system',
-          'Organization': 'NassohCar Rental Service',
-          'X-Sender': this.fromEmail,
-          'X-Source': 'nassohcar.com',
-          'X-Source-IP': '[198.54.127.87]',
-          'X-Authenticated-Sender': this.fromEmail
-        },
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'X-Mailer': 'Nodemailer',
+        'Reply-To': this.fromEmail,
+        'Return-Path': this.fromEmail,
+        'List-Unsubscribe': `<mailto:unsubscribe@nassohcar.com>`,
+        'X-Auto-Response-Suppress': 'All',
+        'MIME-Version': '1.0',
+        'Date': new Date().toUTCString(),
+        'X-Originating-IP': '[127.0.0.1]',
+        'Precedence': 'list',
+        'X-Entity-ID': 'nassohcar-system',
+        'Organization': 'NassohCar Rental Service',
+        'X-Sender': this.fromEmail,
+        'X-Source': 'nassohcar.com',
+        'X-Source-IP': '[127.0.0.1]',
+        'X-Authenticated-Sender': this.fromEmail
+      },
         messageId: messageId,
         date: new Date(),
         envelope: {
@@ -315,6 +315,7 @@ class EmailService {
     dropoffLocation?: string;
     additionalNotes?: string;
   }): Promise<boolean> {
+    console.log(`Sending client confirmation to ${bookingData.customerEmail} for booking ${bookingData.bookingId}`);
     const subject = `Réservation en attente de confirmation ${bookingData.bookingId} - NassohCar`;
     const effectivePricePerDay = bookingData.totalDays > 0
       ? Math.round((bookingData.totalPrice / bookingData.totalDays) * 100) / 100

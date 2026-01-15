@@ -1,28 +1,32 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const enToFrMap: Record<string, string> = {
-  '/en': '/fr',
-  '/en/fleet': '/fleet',
-  '/en/economy-cars': '/economy-cars',
-  '/en/contact': '/contact',
-  '/en/faq': '/faq',
-  '/en/privacy': '/privacy',
-  '/en/terms': '/terms',
-  '/en/blog': '/blog',
-  '/en/guides': '/guides',
-  '/en/car-rental-tangier': '/location-voiture-tanger',
-  '/en/car-rental-tetouan': '/location-voiture-tetouan',
-  '/en/car-rental-tangier-airport': '/location-voiture-tanger-aeroport',
-  '/en/car-rental-tangier-port': '/location-voiture-tanger-port',
-  '/en/car-rental-tangier-port-med': '/location-voiture-tanger-port-med',
-  '/en/guides/tangier-complete-guide': '/guides/guide-tanger-complet',
-  '/en/guides/driving-in-morocco': '/guides/conduire-maroc-guide',
-  '/en/guides/car-rental-tips-morocco': '/guides/conseils-location-voiture',
-  '/en/guides/morocco-travel-budget': '/guides/budget-voyage-maroc',
-  '/en/guides/hidden-attractions-morocco': '/guides/attractions-cachees-maroc',
-  '/en/guides/morocco-itineraries': '/guides/itineraires-maroc',
-  '/en/airport-car-rental': '/airport-car-rental',
+const locales = ['en', 'es', 'fr'];
+const defaultLocale = 'fr';
+
+function getLocale(request: NextRequest) {
+  // 1. Check if a locale cookie is set
+  const localeCookie = request.cookies.get('NEXT_LOCALE')?.value;
+  if (localeCookie && locales.includes(localeCookie)) {
+    return localeCookie;
+  }
+
+  // 2. Check Accept-Language header
+  const acceptLanguage = request.headers.get('Accept-Language');
+  if (acceptLanguage) {
+    // Basic parsing: "en-US,en;q=0.9,es;q=0.8" -> ["en", "es"]
+    const preferredLocales = acceptLanguage
+      .split(',')
+      .map(lang => lang.split(';')[0].trim().split('-')[0].toLowerCase());
+    
+    for (const lang of preferredLocales) {
+      if (locales.includes(lang)) {
+        return lang;
+      }
+    }
+  }
+
+  return defaultLocale;
 }
 
 export function middleware(req: NextRequest) {
@@ -41,7 +45,16 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(url, 308)
   }
 
-  // Do not rewrite English paths; serve pages under /en directly
+  // Language Detection and Redirection for root path "/"
+  // We only redirect if we are exactly at "/" and the detected language is not the default (fr)
+  if (pathname === '/') {
+    const locale = getLocale(req);
+    if (locale && locale !== 'fr') {
+      const url = req.nextUrl.clone();
+      url.pathname = `/${locale}`;
+      return NextResponse.redirect(url, 307); // 307 Temporary Redirect
+    }
+  }
 
   return NextResponse.next()
 }
@@ -49,6 +62,6 @@ export function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     '/',
-    '/((?!_next|api|admin|static|images|nassouhe\.png).*)',
+    '/((?!_next|api|admin|static|images|nassouhe\\.png).*)',
   ],
 }

@@ -73,6 +73,8 @@ export default function LanguageSwitcher() {
     }
 
     setIsOpen(false);
+    // Set cookie for language preference (expires in 365 days)
+    document.cookie = `NEXT_LOCALE=${targetLang}; path=/; max-age=${365 * 24 * 60 * 60}; SameSite=Lax`;
     router.push(targetPath);
   };
 

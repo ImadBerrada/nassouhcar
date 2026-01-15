@@ -11,12 +11,14 @@ interface LayoutWrapperProps {
 export default function LayoutWrapper({ children, header, footer }: LayoutWrapperProps) {
   const pathname = usePathname();
 
-  // Check if the current path is for 'en' or 'es' locales
+  // Check if the current path is for 'en', 'es' locales, or admin panel
   // We want to suppress the default header/footer for these paths
-  // because they have their own localized layouts with their own headers/footers.
-  const isLocalizedPath = pathname?.startsWith('/en') || pathname?.startsWith('/es');
+  // because they have their own layouts with their own headers/footers.
+  const isExcludedPath = pathname?.startsWith('/en') || 
+                        pathname?.startsWith('/es') || 
+                        pathname?.startsWith('/admin');
 
-  if (isLocalizedPath) {
+  if (isExcludedPath) {
     return <>{children}</>;
   }
 

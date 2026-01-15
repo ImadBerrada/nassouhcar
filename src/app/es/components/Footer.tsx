@@ -46,11 +46,7 @@ const Footer = () => {
               <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"></div>
             </h3>
             <ul className="space-y-3">
-              <li>
-                <a href="/es/coches-economicos" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
-                  <span className="group-hover:text-white">Coches Económicos</span>
-                </a>
-              </li>
+              
               <li>
                 <a href="/es/alquiler-coches-aeropuerto" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
                   <span className="group-hover:text-white">Alquiler Aeropuerto</span>

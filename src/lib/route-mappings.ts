@@ -23,15 +23,6 @@ export const routeMappings: RouteMapping[] = [
   { fr: '/dashboard', en: '/en/dashboard', es: '/es/panel' },
   { fr: '/dashboard/profile', en: '/en/dashboard/profile', es: '/es/panel/perfil' },
 
-  // Guides
-  { fr: '/guides', en: '/en/guides', es: '/es/guias' },
-  { fr: '/guides/attractions-cachees-maroc', en: '/en/guides/hidden-attractions-morocco', es: '/es/guias/atracciones-ocultas-marruecos' },
-  { fr: '/guides/conduire-maroc-guide', en: '/en/guides/driving-in-morocco', es: '/es/guias/conducir-en-marruecos' },
-  { fr: '/guides/guide-tanger-complet', en: '/en/guides/tangier-complete-guide', es: '/es/guias/guia-tanger-completa' },
-  { fr: '/guides/budget-voyage-maroc', en: '/en/guides/morocco-travel-budget', es: '/es/guias/presupuesto-viaje-marruecos' },
-  { fr: '/guides/itineraires-maroc', en: '/en/guides/morocco-itineraries', es: '/es/guias/itinerarios-marruecos' },
-  { fr: '/guides/conseils-location-voiture', en: '/en/guides/car-rental-tips-morocco', es: '/es/guias/consejos-alquiler-coches-marruecos' },
-
   // Landing Pages - Locations & Services
   { fr: '/airport-car-rental', en: '/en/airport-car-rental', es: '/es/alquiler-coches-aeropuerto' },
   { fr: '/location-voiture-tanger', en: '/en/car-rental-tangier', es: '/es/alquiler-coches-tanger' },
@@ -62,7 +53,6 @@ export const routeMappings: RouteMapping[] = [
   { fr: '/blog/location-auto-tanger', en: '/en/blog/car-rental-tangier-auto', es: '/es/blog/alquiler-coches-tanger-auto' },
   { fr: '/blog/location-de-voitures-tanger', en: '/en/blog/car-rental-in-tangier', es: '/es/blog/alquiler-de-coches-en-tanger' },
   { fr: '/blog/location-voiture-a-tanger', en: '/en/blog/car-hire-tangier', es: '/es/blog/alquiler-coche-en-tanger' },
-  { fr: '/blog/location-voiture-tanger-aeroport-sans-caution', en: '/en/blog/car-rental-tangier-airport-no-deposit', es: '/es/blog/alquiler-coches-aeropuerto-tanger-sin-fianza' },
   { fr: '/blog/location-voiture-tanger-boukhalef', en: '/en/blog/car-rental-tangier-boukhalef', es: '/es/blog/alquiler-coches-tanger-boukhalef' },
   { fr: '/blog/location-voiture-tanger-les-mieux-notes', en: '/en/blog/best-rated-car-rentals-tangier', es: '/es/blog/mejores-alquileres-coches-tanger' },
   { fr: '/blog/location-voiture-tanger-maroc', en: '/en/blog/car-rental-tangier-morocco', es: '/es/blog/alquiler-coches-tanger-marruecos' },

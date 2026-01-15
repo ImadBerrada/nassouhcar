@@ -8,7 +8,6 @@ export async function generateSitemaps() {
     { id: 'en' },
     { id: 'es' },
     { id: 'blog' },
-    { id: 'guides' },
   ]
 }
 
@@ -20,23 +19,17 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
     const mainPages = [
       '',
       '/about',
-      '/airport-car-rental',
-      '/car-rental-tangier',
-      '/car-rental-tetouan',
       '/contact',
-      '/economy-cars',
+      
       '/faq',
       '/fleet',
       '/location-voiture-europe',
-      '/location-voiture-france',
       '/location-voiture-tanger',
       '/location-voiture-tanger-aeroport',
       '/location-voiture-tanger-centre-ville',
       '/location-voiture-tanger-pas-cher',
       '/location-voiture-tanger-port',
       '/location-voiture-tetouan',
-      '/privacy',
-      '/terms',
     ]
 
     return mainPages.map((route) => ({
@@ -66,7 +59,10 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       '/en/economy-cars',
       '/en/faq',
       '/en/fleet',
+      '/en/forgot-password',
+      '/en/login',
       '/en/privacy',
+      '/en/register',
       '/en/terms',
     ]
 
@@ -92,11 +88,13 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       '/es/alquiler-coches-tanger',
       '/es/alquiler-coches-tanger-centro',
       '/es/alquiler-coches-tetuan',
-      '/es/coches-economicos',
       '/es/contacto',
       '/es/faq',
       '/es/flota',
+      '/es/iniciar-sesion',
       '/es/privacidad',
+      '/es/recuperar-contrasena',
+      '/es/registro',
       '/es/sobre-nosotros',
       '/es/terminos',
     ]
@@ -132,7 +130,6 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       '/blog/location-voiture-tanger',
       '/blog/location-voiture-tanger-aeroport',
       '/blog/location-voiture-tanger-aeroport-pas-cher',
-      '/blog/location-voiture-tanger-aeroport-sans-caution',
       '/blog/location-voiture-tanger-boukhalef',
       '/blog/location-voiture-tanger-les-mieux-notes',
       '/blog/location-voiture-tanger-maroc',
@@ -163,8 +160,6 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       '/en/blog/car-rental-morocco',
       '/en/blog/car-rental-tangier',
       '/en/blog/car-rental-tangier-airport',
-      '/en/blog/car-rental-tangier-airport-no-deposit',
-      '/en/blog/car-rental-tangier-auto',
       '/en/blog/car-rental-tangier-boukhalef',
       '/en/blog/car-rental-tangier-med',
       '/en/blog/car-rental-tangier-med-port',
@@ -193,7 +188,6 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       '/es/blog/alquiler-auto-tanger',
       '/es/blog/alquiler-coche-en-tanger',
       '/es/blog/alquiler-coches-aeropuerto-tanger',
-      '/es/blog/alquiler-coches-aeropuerto-tanger-sin-fianza',
       '/es/blog/alquiler-coches-aeropuerto-tetuan',
       '/es/blog/alquiler-coches-baratos',
       '/es/blog/alquiler-coches-baratos-aeropuerto-tanger',
@@ -225,10 +219,6 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       '/es/blog/rentar-coche-barato-tanger',
     ]
 
-    const categoriesFr = ['adventure', 'insider-secrets', 'money-saving-tips', 'transportation', 'car-reviews', 'city-exploration', 'travel-guides', 'photography', 'safety-tips', 'local-culture']
-    const categoriesEn = ['adventure', 'insider-secrets', 'money-saving-tips', 'transportation', 'car-reviews', 'city-exploration', 'travel-guides', 'photography', 'safety-tips', 'local-culture']
-    const categoriesEs = ['aventura', 'secretos-locales', 'consejos-ahorro', 'transporte', 'resenas-coches', 'exploracion-ciudad', 'guias-viaje', 'fotografia', 'consejos-seguridad', 'cultura-local']
-
     const citiesFr = ['location-voiture-tanger-ville', 'location-voiture-tanger-port']
     const citiesEn = ['tangier']
     const citiesEs = ['tanger']
@@ -237,9 +227,6 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       ...frBlogPosts,
       ...enBlogPosts,
       ...esBlogPosts,
-      ...categoriesFr.map(c => `/blog/category/${c}`),
-      ...categoriesEn.map(c => `/en/blog/category/${c}`),
-      ...categoriesEs.map(c => `/es/blog/categoria/${c}`),
       ...citiesFr.map(c => `/blog/${c}`),
       ...citiesEn.map(c => `/en/blog/${c}`),
       ...citiesEs.map(c => `/es/blog/${c}`),
@@ -250,44 +237,6 @@ export default async function sitemap({ id }: { id: string }): Promise<MetadataR
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.7,
-    }))
-  }
-
-  // Guides Pages (All languages)
-  if (id === 'guides') {
-    const guides = [
-      '/guides',
-      '/guides/attractions-cachees-maroc',
-      '/guides/budget-voyage-maroc',
-      '/guides/conduire-maroc-guide',
-      '/guides/conseils-location-voiture',
-      '/guides/guide-tanger-complet',
-      '/guides/itineraires-maroc',
-      '/en/guides',
-      '/en/guides/car-rental-tips-morocco',
-      '/en/guides/driving-in-morocco',
-      '/en/guides/hidden-attractions-morocco',
-      '/en/guides/morocco-itineraries',
-      '/en/guides/morocco-travel-budget',
-      '/en/guides/tangier-complete-guide',
-      '/es/guias',
-      '/es/guias/atracciones-ocultas-marruecos',
-      '/es/guias/conducir-en-marruecos',
-      '/es/guias/consejos-alquiler-coches-marruecos',
-      '/es/guias/guia-tanger-completa',
-      '/es/guias/itinerarios-marruecos',
-      '/es/guias/presupuesto-viaje-marruecos',
-      '/ar/guides/attractions-cachees-maroc',
-      '/ar/guides/budget-voyage-maroc',
-      '/ar/guides/conduire-maroc-guide',
-      '/ar/guides/guide-tanger-complet',
-    ]
-
-    return guides.map((route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.6,
     }))
   }
 

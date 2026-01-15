@@ -6,12 +6,12 @@ import Breadcrumb, { BreadcrumbStructuredData } from '@/components/Breadcrumb'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
-  title: 'Tangier Car Rental Blog | Guides & Tips | Nassoh Car',
-  description: 'Car rental guides and tips in Tangier and Morocco. Itineraries, savings, safety, local culture. Your expert since 2020.',
-  keywords: 'nassoh car blog, tangier car rental guides, morocco car rental tips, tangier itineraries, car rental savings, morocco road safety, tangier local culture',
+  title: 'Tangier Car Rental Blog | Rental Tips | Nassoh Car',
+  description: 'Car rental tips and advice in Tangier and Morocco. Itineraries, savings, safety, local culture. Your expert since 2020.',
+  keywords: 'nassoh car blog, tangier car rental tips, morocco car rental advice, tangier itineraries, car rental savings, morocco road safety, tangier local culture',
   openGraph: {
-    title: 'Tangier Car Rental Blog | Guides & Tips | Nassoh Car',
-    description: 'Car rental guides and tips in Tangier and Morocco. Itineraries, savings, safety, local culture.',
+    title: 'Tangier Car Rental Blog | Rental Tips | Nassoh Car',
+    description: 'Car rental tips and advice in Tangier and Morocco. Itineraries, savings, safety, local culture.',
     type: 'website',
     url: 'https://www.nassohcar.com/en/blog',
     siteName: 'Nassoh Car',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tangier Car Rental Blog | Guides & Tips',
-    description: 'Car rental guides and tips in Tangier and Morocco.',
+    title: 'Tangier Car Rental Blog | Rental Tips',
+    description: 'Car rental tips and advice in Tangier and Morocco.',
     images: ['/tangier.webp']
   },
   alternates: {
@@ -39,7 +39,7 @@ export default function BlogPageEN() {
       excerpt: "Discover the best kept secrets of Tangier with our affordable car rental service. From the mystical Caves of Hercules to the pristine beaches of Cap Spartel, unlock exclusive destinations that 90% of tourists never see. Our local experts reveal privileged itineraries and hidden parking spots that will transform your Moroccan adventure into an unforgettable journey.",
       fullPreview: "Why settle for crowded tourist spots when you can explore the hidden paradise of Tangier? Our affordable fleet gives you access to secret beaches, ancient ruins, and breathtaking viewpoints that only locals know. With GPS navigation, 24/7 support, and insider travel guides included, you'll discover why our customers give us 5 stars for revealing Morocco's hidden treasures.",
       date: "August 23, 2025",
-      category: "Travel Guides",
+      category: "Travel Advice",
       image: "/tangier.webp",
       readTime: "5 min read",
       featured: true,
@@ -133,7 +133,7 @@ export default function BlogPageEN() {
       excerpt: "Practical guide to easily find a rental car in Tetouan. Agency comparison, selection tips, and tricks to save.",
       fullPreview: "Everything you need to know to choose the right rental car in Tetouan. Selection criteria, offer comparison, and local expert recommendations.",
       date: "December 7, 2024",
-      category: "Travel Guides",
+      category: "Travel Advice",
       image: "/tetouan.jpeg",
       readTime: "7 min read",
       featured: false,
@@ -224,7 +224,7 @@ export default function BlogPageEN() {
       excerpt: "Your trusted car rental agency in Morocco. National presence, diversified fleet, and excellence customer service since 2020.",
       fullPreview: "Leading agency in Morocco with 15 service points, over 500 vehicles, and a team of experts dedicated to your satisfaction. Quality certifications and economic service.",
       date: "December 1, 2024",
-      category: "Travel Guides",
+      category: "Travel Advice",
       image: "/nassouhe.png",
       readTime: "6 min read",
       featured: false,
@@ -239,7 +239,7 @@ export default function BlogPageEN() {
       excerpt: "Local car rental agency in Tangier with 5 service points. Expert team, specialized fleet, and in-depth knowledge of the region.",
       fullPreview: "Benefit from our local expertise in Tangier. 5 strategically placed agencies, bilingual team, and personalized advice to discover the region's treasures.",
       date: "November 30, 2024",
-      category: "Travel Guides",
+      category: "Travel Advice",
       image: "/tangier.webp",
       readTime: "5 min read",
       featured: false,
@@ -383,21 +383,6 @@ export default function BlogPageEN() {
       views: "1.9k",
       rating: 4.8,
       tags: ["Boukhalef", "Airport", "Ibn Battuta"]
-    },
-    {
-      id: 30,
-      citySlug: "car-rental-tangier-airport-no-deposit",
-      title: "Car Rental Tangier Airport No Deposit 2025 - 0€ Deposit | Nassoh Car",
-      excerpt: "Car rental at Tangier airport without deposit. Innovative service with 0€ deposit and simplified formalities for immediate departure.",
-      fullPreview: "Revolutionize your rental experience with our no-deposit service at Tangier airport. Simplified procedure and guaranteed immediate departure.",
-      date: "November 20, 2024",
-      category: "Transport",
-      image: "/tangier.webp",
-      readTime: "8 min read",
-      featured: false,
-      views: "2.3k",
-      rating: 4.9,
-      tags: ["No Deposit", "0€", "Innovative"]
     },
     {
       id: 31,
@@ -550,12 +535,12 @@ export default function BlogPageEN() {
             </span>
           </h1>
           <p className="text-2xl md:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-            Discover the Secrets of Morocco with our Expert Guides & Car Rental Tips Tangier
+            Unlock Morocco's Secrets with our Tangier Car Rental Tips
           </p>
           <div className="flex items-center justify-center space-x-8 text-yellow-400">
             <div className="flex items-center space-x-2">
               <Star className="h-6 w-6 fill-current" />
-              <span className="text-xl font-bold">Rated 4.9/5</span>
+              <span className="text-xl font-bold">Note 4.9/5</span>
             </div>
             <div className="flex items-center space-x-2">
               <Eye className="h-6 w-6" />
@@ -563,7 +548,7 @@ export default function BlogPageEN() {
             </div>
             <div className="flex items-center space-x-2">
               <Award className="h-6 w-6" />
-              <span className="text-xl font-bold">Expert Guides</span>
+              <span className="text-xl font-bold">Local Experts</span>
             </div>
           </div>
           <div className="mt-8 flex justify-center">
@@ -605,23 +590,10 @@ export default function BlogPageEN() {
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-800 group-hover:text-yellow-600 transition-colors">Tangier Rental</h3>
-                      <p className="text-sm text-slate-600">Complete Guide</p>
+                      <p className="text-sm text-slate-600">Full Advice</p>
                     </div>
                   </div>
                   <p className="text-slate-700 text-sm">Complete guide to car rental in Tangier with the best tips.</p>
-                </Link>
-
-                <Link href="/en/blog/guide-tangier-attractions" className="group bg-gradient-to-br from-teal-50 to-cyan-100 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-teal-200">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center">
-                      <ArrowRight className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-slate-800 group-hover:text-teal-600 transition-colors">Tangier Guide</h3>
-                      <p className="text-sm text-slate-600">Complete Version</p>
-                    </div>
-                  </div>
-                  <p className="text-slate-700 text-sm">The ultimate guide to Tangier with all the secrets for your trip.</p>
                 </Link>
               </div>
             </div>
@@ -685,8 +657,8 @@ export default function BlogPageEN() {
                       {post.fullPreview}
                     </p>
                   </div>
-                  <Link href={`/en/blog/${post.citySlug}`} className="inline-flex items-center bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-black font-black py-4 px-8 rounded-2xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg">
-                    Unlock Complete Guide
+                  <Link href={`/blog/${post.citySlug}`} className="inline-flex items-center bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-black font-black py-4 px-8 rounded-2xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg">
+                    Read the Full Story
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </Link>
                 </div>

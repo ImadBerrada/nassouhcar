@@ -396,42 +396,6 @@ export default function HomeES() {
         </div>
       </section>
 
-      {/* Articles & Tips Section */}
-      <section className="py-24 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-4">Artículos y <span className="text-amber-400">Consejos</span></h2>
-              <p className="text-gray-400">Prepare su viaje a Marruecos con nuestros mejores consejos</p>
-            </div>
-            <Link href="/es/blog" className="hidden md:flex items-center text-amber-400 hover:text-amber-300 font-semibold transition-colors">
-              Ver todos los artículos <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.slice(0, 3).map((article, idx) => (
-              <article key={idx} className="bg-black/40 border border-white/10 rounded-3xl overflow-hidden hover:border-amber-400/30 transition-all duration-300 flex flex-col h-full group">
-                <div className="relative h-56 overflow-hidden">
-                  <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute top-4 left-4 bg-amber-400 text-black text-xs font-bold px-3 py-1 rounded-full">{article.date}</div>
-                </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors line-clamp-2">{article.title}</h3>
-                  <p className="text-gray-400 mb-6 line-clamp-3">{article.excerpt}</p>
-                  <Link href={`/es/${article.citySlug}`} className="mt-auto flex items-center text-amber-400 font-semibold group/link">
-                    Leer más <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-2 transition-transform" />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="mt-12 text-center md:hidden">
-            <Link href="/es/blog" className="inline-flex items-center text-amber-400 font-semibold">
-              Ver todos los artículos <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-gradient-to-b from-black to-slate-900">

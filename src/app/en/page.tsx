@@ -335,22 +335,6 @@ export default function HomeEN() {
           </div>
         </section>
 
-        <section className="py-20 bg-gradient-to-b from-black to-slate-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Articles & <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">Tips</span></h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">Explore our travel guides and tips for car rental in Tangier and Morocco. Discover the best destinations with Nassoh Car.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {articles.map((article, index) => (
-                <div key={index} className="bg-white/5 backdrop-blur-md border border-amber-400/20 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 group">
-                  <div className="relative h-48"><Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw" loading="lazy" /></div>
-                  <div className="p-6"><p className="text-amber-400 text-sm mb-2">{article.date}</p><h3 className="text-lg font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">{article.title}</h3><p className="text-gray-300 text-sm mb-4">{article.excerpt}</p><Link href={`/en/blog/${article.citySlug}`} className="text-amber-400 font-medium hover:text-amber-300 transition-colors flex items-center">Read More<ArrowRight className="ml-2 h-4 w-4" /></Link></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="py-20 bg-gradient-to-b from-black to-slate-900">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

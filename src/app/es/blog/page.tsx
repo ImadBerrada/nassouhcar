@@ -6,12 +6,12 @@ import Breadcrumb from '@/app/es/components/Breadcrumb'
 import StructuredData from '@/app/es/components/StructuredData'
 
 export const metadata: Metadata = {
-  title: 'Blog Alquiler Coches Tánger | Guías y Consejos | Nassoh Car',
-  description: 'Guías y consejos para el alquiler de coches en Tánger y Marruecos. Itinerarios, ahorro, seguridad, cultura local. Su experto desde 2020.',
-  keywords: 'blog nassoh car, guías alquiler coches tanger, consejos alquiler coches marruecos, itinerarios tanger, ahorrar alquiler coches, seguridad vial marruecos, cultura local tanger',
+  title: 'Blog Alquiler Coches Tánger | Consejos | Nassoh Car',
+  description: 'Consejos para el alquiler de coches en Tánger y Marruecos. Itinerarios, ahorro, seguridad, cultura local. Su experto desde 2020.',
+  keywords: 'blog nassoh car, consejos alquiler coches tanger, consejos alquiler coches marruecos, itinerarios tanger, ahorrar alquiler coches, seguridad vial marruecos, cultura local tanger',
   openGraph: {
-    title: 'Blog Alquiler Coches Tánger | Guías y Consejos | Nassoh Car',
-    description: 'Guías y consejos para el alquiler de coches en Tánger y Marruecos. Itinerarios, ahorro, seguridad, cultura local.',
+    title: 'Blog Alquiler Coches Tánger | Consejos | Nassoh Car',
+    description: 'Consejos para el alquiler de coches en Tánger y Marruecos. Itinerarios, ahorro, seguridad, cultura local.',
     type: 'website',
     url: 'https://www.nassohcar.com/es/blog',
     siteName: 'Nassoh Car',
@@ -39,7 +39,7 @@ export default function BlogPageES() {
       excerpt: "Descubra los secretos mejor guardados de Tánger con nuestro servicio de alquiler de coches asequible. Desde las místicas Cuevas de Hércules hasta las playas inmaculadas de Cabo Espartel, desbloquee destinos exclusivos que el 90% de los turistas nunca ven.",
       fullPreview: "¿Por qué conformarse con lugares turísticos abarrotados cuando puede explorar el paraíso oculto de Tánger? Nuestra flota asequible le da acceso a playas secretas, ruinas antiguas y miradores impresionantes que solo los locales conocen. Con navegación GPS, soporte 24/7 y guías de viaje privilegiados incluidos, descubrirá por qué nuestros clientes nos dan 5 estrellas.",
       date: "23 Agosto 2025",
-      category: "Guías de Viaje",
+      category: "Consejos de Viaje",
       image: "/tangier.webp",
       readTime: "5 min lectura",
       featured: true,
@@ -129,7 +129,7 @@ export default function BlogPageES() {
       excerpt: "Guía práctica para encontrar fácilmente un coche de alquiler en Tetuán. Comparación de agencias, consejos de selección y trucos para ahorrar.",
       fullPreview: "Todo lo que necesita saber para elegir el coche de alquiler adecuado en Tetuán. Criterios de selección, comparación de ofertas y recomendaciones de expertos locales.",
       date: "7 Diciembre 2024",
-      category: "Guías de Viaje",
+      category: "Consejos de Viaje",
       image: "/tetouan.jpeg",
       readTime: "7 min lectura",
       featured: false,
@@ -219,7 +219,7 @@ export default function BlogPageES() {
       excerpt: "Su agencia de alquiler de coches de confianza en Marruecos. Presencia nacional, flota diversificada y servicio al cliente de excelencia desde 2020.",
       fullPreview: "Agencia líder en Marruecos con 15 puntos de servicio, más de 500 vehículos y un equipo de expertos dedicado a su satisfacción. Certificaciones de calidad y servicio económico.",
       date: "1 Diciembre 2024",
-      category: "Guías de Viaje",
+      category: "Consejos de Viaje",
       image: "/nassouhe.png",
       readTime: "6 min lectura",
       featured: false,
@@ -234,7 +234,7 @@ export default function BlogPageES() {
       excerpt: "Agencia local de alquiler de coches en Tánger con 5 puntos de servicio. Equipo experto, flota especializada y conocimiento profundo de la región.",
       fullPreview: "Benefíciese de nuestra experiencia local en Tánger. 5 agencias estratégicamente ubicadas, equipo bilingüe y consejos personalizados para descubrir los tesoros de la región.",
       date: "30 Noviembre 2024",
-      category: "Guías de Viaje",
+      category: "Consejos de Viaje",
       image: "/tangier.webp",
       readTime: "5 min lectura",
       featured: false,
@@ -376,21 +376,6 @@ export default function BlogPageES() {
       views: "1.9k",
       rating: 4.8,
       tags: ["Boukhalef", "Aeropuerto", "Ibn Battuta"]
-    },
-    {
-      id: 30,
-      citySlug: "alquiler-coches-aeropuerto-tanger-sin-fianza",
-      title: "Alquiler Coches Aeropuerto Tánger Sin Fianza 2025 - 0€ Fianza",
-      excerpt: "Alquiler de coches en el aeropuerto de Tánger sin fianza. Servicio innovador con 0€ de fianza y trámites simplificados para una salida inmediata.",
-      fullPreview: "Revolucione su experiencia de alquiler con nuestro servicio sin fianza en el aeropuerto de Tánger. Procedimiento simplificado y salida inmediata garantizada.",
-      date: "20 Noviembre 2024",
-      category: "Transporte",
-      image: "/tangier.webp",
-      readTime: "6 min lectura",
-      featured: false,
-      views: "2.3k",
-      rating: 4.9,
-      tags: ["Sin Fianza", "0€", "Innovador"]
     },
     {
       id: 31,
@@ -593,23 +578,10 @@ export default function BlogPageES() {
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-800 group-hover:text-yellow-600 transition-colors">Alquiler Tánger</h3>
-                      <p className="text-sm text-slate-600">Guía Completa</p>
+                      <p className="text-sm text-slate-600">Consejos Completos</p>
                     </div>
                   </div>
                   <p className="text-slate-700 text-sm">Guía completa para el alquiler de coches en Tánger con los mejores consejos.</p>
-                </Link>
-
-                <Link href="/es/guias/guia-completa-tanger" className="group bg-gradient-to-br from-teal-50 to-cyan-100 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-teal-200">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center">
-                      <ArrowRight className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-slate-800 group-hover:text-teal-600 transition-colors">Guía Tánger</h3>
-                      <p className="text-sm text-slate-600">Versión Completa</p>
-                    </div>
-                  </div>
-                  <p className="text-slate-700 text-sm">La guía definitiva de Tánger con todos los secretos para su viaje.</p>
                 </Link>
               </div>
             </div>
@@ -673,8 +645,8 @@ export default function BlogPageES() {
                       {post.fullPreview}
                     </p>
                   </div>
-                  <Link href={`/es/blog/${post.citySlug}`} className="inline-flex items-center bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-black font-black py-4 px-8 rounded-2xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg">
-                    Desbloquear Guía Completa
+                  <Link href={`/blog/${post.citySlug}`} className="inline-flex items-center bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-black font-black py-4 px-8 rounded-2xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg">
+                    Leer la Historia Completa
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </Link>
                 </div>

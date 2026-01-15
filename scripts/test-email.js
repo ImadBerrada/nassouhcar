@@ -7,8 +7,8 @@ const config = {
   port: 587,
   secure: false,
   auth: {
-    user: 'contact@nassohcar.com',
-    pass: process.env.SMTP_PASS || ''
+    user: process.env.EMAIL_SERVER_USER || 'admin@nassohcar.com',
+    pass: process.env.EMAIL_SERVER_PASSWORD || ''
   },
   tls: {
     rejectUnauthorized: true,
@@ -126,6 +126,10 @@ async function testEmailDelivery() {
     console.log('✅ Email sent successfully!');
     console.log('Message ID:', result.messageId);
     console.log('Response:', result.response);
+    
+    // Log accepted/rejected recipients
+    console.log('Accepted:', result.accepted);
+    console.log('Rejected:', result.rejected);
     
   } catch (error) {
     console.error('❌ Test failed:', error.message);

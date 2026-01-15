@@ -120,19 +120,60 @@ export async function PUT(
           select: {
             id: true,
             name: true,
-            email: true
+            email: true,
+            phone: true
           }
         },
         car: {
           select: {
             id: true,
+            name: true,
             brand: true,
             model: true,
-            year: true
+            year: true,
+            pricePerDay: true
           }
         }
       }
     })
+
+    // Send confirmation notification if status is CONFIRMED
+    if (status === 'CONFIRMED') {
+      try {
+        const customerEmail = booking.user?.email || booking.guestEmail
+        const customerName = booking.user?.name || booking.guestName
+        const customerPhone = booking.user?.phone || booking.guestPhone || 'N/A'
+        
+        if (customerEmail && customerName) {
+          const start = new Date(booking.startDate)
+          const end = new Date(booking.endDate)
+          const totalDays = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
+
+          await emailService.sendBookingConfirmationNotification({
+            bookingId: booking.id,
+            customerEmail,
+            customerName,
+            customerPhone,
+            car: {
+              name: booking.car.name,
+              brand: booking.car.brand,
+              model: booking.car.model,
+              year: booking.car.year,
+              pricePerDay: booking.car.pricePerDay
+            },
+            startDate: booking.startDate,
+            endDate: booking.endDate,
+            totalDays,
+            totalPrice: booking.totalPrice,
+            pickupLocation: booking.pickupLocation,
+            dropoffLocation: booking.dropoffLocation || undefined,
+            additionalNotes: booking.additionalNotes || undefined
+          })
+        }
+      } catch (emailError) {
+        console.error('Failed to send confirmation notification:', emailError)
+      }
+    }
 
     // Send cancellation notification if status is CANCELLED
     if (status === 'CANCELLED') {
