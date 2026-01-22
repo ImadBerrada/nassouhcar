@@ -24,12 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: [
-      'https://www.nassohcar.com/sitemap/main.xml',
-      'https://www.nassohcar.com/sitemap/en.xml',
-      'https://www.nassohcar.com/sitemap/es.xml',
-      'https://www.nassohcar.com/sitemap/blog.xml',
-    ],
+    sitemap: 'https://www.nassohcar.com/sitemap.xml',
     host: 'https://www.nassohcar.com',
   }
 }

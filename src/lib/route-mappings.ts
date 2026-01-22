@@ -24,7 +24,6 @@ export const routeMappings: RouteMapping[] = [
   { fr: '/dashboard/profile', en: '/en/dashboard/profile', es: '/es/panel/perfil' },
 
   // Landing Pages - Locations & Services
-  { fr: '/airport-car-rental', en: '/en/airport-car-rental', es: '/es/alquiler-coches-aeropuerto' },
   { fr: '/location-voiture-tanger', en: '/en/car-rental-tangier', es: '/es/alquiler-coches-tanger' },
   { fr: '/location-voiture-tetouan', en: '/en/car-rental-tetouan', es: '/es/alquiler-coches-tetuan' },
   { fr: '/location-voiture-tanger-aeroport', en: '/en/car-rental-tangier-airport', es: '/es/alquiler-coches-aeropuerto-tanger' },

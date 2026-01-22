@@ -78,6 +78,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/en/economy-cars',
+        destination: '/en/cheap-car-rental-tangier',
+        permanent: true,
+      },
+      {
+        source: '/en/airport-car-rental',
+        destination: '/en/car-rental-tangier-airport',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

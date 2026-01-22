@@ -134,6 +134,15 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
       )
     }
     
+    // Delete related records first (cascade delete)
+    await prisma.priceRule.deleteMany({
+      where: { carId }
+    })
+
+    await prisma.booking.deleteMany({
+      where: { carId }
+    })
+
     await prisma.car.delete({
       where: { id: carId }
     })

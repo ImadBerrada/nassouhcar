@@ -17,9 +17,6 @@ Allow: /privacy
 Allow: /terms
 
 # Sitemap location
-Sitemap: https://www.nassohcar.com/sitemap/main.xml
-Sitemap: https://www.nassohcar.com/sitemap/en.xml
-Sitemap: https://www.nassohcar.com/sitemap/es.xml
-Sitemap: https://www.nassohcar.com/sitemap/blog.xml
+Sitemap: https://www.nassohcar.com/sitemap.xml
 # Crawl delay (optional)
 Crawl-delay: 1
