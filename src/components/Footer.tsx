@@ -54,7 +54,7 @@ const Footer = () => {
             <ul className="space-y-3">
               
               <li>
-                <a href="/airport-car-rental" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
+                <a href="/location-voiture-tanger-aeroport" className="text-gray-300 hover:text-amber-400 transition-all duration-300 text-base hover:translate-x-2 block group">
                   <span className="group-hover:text-white">Location Aéroport</span>
                 </a>
               </li>
